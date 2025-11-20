@@ -23,20 +23,20 @@ export default function HomePage() {
               </p>
 
               <div className={styles.heroCta}>
-                <Button href="/builder" size="large" variant="primary" context="dark">
-                  Create your list
+                <Button href="/waitlist" size="large" variant="primary" context="dark">
+                  Join waitlist
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
                 </Button>
-                <Button href="#example" variant="ghost" context="dark">
-                  See example list
+                <Button href="#why" variant="ghost" context="dark">
+                  Learn more
                 </Button>
               </div>
 
               <p className={styles.heroTrustText}>
-                Start without signing in. Manage your list and share your links for 30 days.
+                Join the waitlist for early access. Be the first to know when we launch.
               </p>
             </div>
 
@@ -323,13 +323,13 @@ export default function HomePage() {
       <section className={styles.finalCtaSection}>
         <div className={styles.finalCtaContainer}>
           <h2 className={styles.finalCtaTitle}>
-            Create a list now
+            Get early access
           </h2>
           <p className={styles.finalCtaDescription}>
-            Create a page without signing in. Pack your links in one address and share with everyone.
+            Join the waitlist and be the first to use PackedLink when we launch. Get exclusive early access features.
           </p>
-          <Button href="/builder" size="large" variant="primary" context="light">
-            Create your list
+          <Button href="/waitlist" size="large" variant="primary" context="light">
+            Join waitlist
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
