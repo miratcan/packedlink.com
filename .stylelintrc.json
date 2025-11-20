@@ -1,0 +1,14 @@
+{
+  "extends": [],
+  "rules": {
+    "color-no-hex": true,
+    "function-disallowed-list": ["rgba", "rgb", "hsl", "hsla"],
+    "color-named": "never"
+  },
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "node_modules/**"
+  ]
+}

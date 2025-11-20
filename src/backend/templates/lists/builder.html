@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Builder · Kaydet.link{% endblock %}
+{% block content %}
+  <nav class="breadcrumbs">adım 2 · <span>builder</span></nav>
+  <h1>Liste taslağını düzenle</h1>
+  <p>{{ list_obj.title }} · {{ list_obj.curator_name|default:"Anon küratör" }}</p>
+
+  <h2>Liste detayları</h2>
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="update_list" />
+    {{ list_form.non_field_errors }}
+    <label for="id_title">Başlık</label>
+    {{ list_form.title }}
+    <label for="id_description">Özet</label>
+    {{ list_form.description }}
+    <label for="id_curator_name">Küratör adı</label>
+    {{ list_form.curator_name }}
+    <label for="id_curator_email">E-posta</label>
+    {{ list_form.curator_email }}
+    <button class="btn" type="submit">Kaydet</button>
+  </form>
+
+  <hr />
+
+  <h2>Linkler</h2>
+  {% if links %}
+    <div class="link-list">
+      {% for link in links %}
+        <div class="link-card">
+          <h4><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a></h4>
+          <p>{{ link.notes|default:"" }}</p>
+          <form method="post" style="margin-top: .5rem;">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="delete_link" />
+            <input type="hidden" name="link_id" value="{{ link.id }}" />
+            <button class="btn secondary" type="submit">Sil</button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">Henüz link yok. Aşağıdan hızlıca ekle.</div>
+  {% endif %}
+
+  <h3>Yeni link ekle</h3>
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="add_link" />
+    {{ link_form.non_field_errors }}
+    <label for="id_title">Başlık</label>
+    {{ link_form.title }}
+    <label for="id_url">URL</label>
+    {{ link_form.url }}
+    <label for="id_notes">Not</label>
+    {{ link_form.notes }}
+    <button class="btn" type="submit">Link ekle</button>
+  </form>
+
+  <div style="margin-top: 2rem; display:flex; gap: 1rem;">
+    <a class="btn{% if not can_publish %} secondary{% endif %}" href="{% url 'lists:publish' manage_token=list_obj.manage_token %}">Publish ekranına geç</a>
+    {% if not can_publish %}<span style="align-self:center; color:#6b7280;">Yayınlamak için en az bir link ekle.</span>{% endif %}
+  </div>
+{% endblock %}

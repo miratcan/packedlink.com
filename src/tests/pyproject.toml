@@ -1,0 +1,50 @@
+[project]
+name = "kaydet-tests"
+version = "0.1.0"
+description = "Test orchestration and E2E tests for Kaydet.link"
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1.0",
+    "loguru>=0.7.0",
+    "aiohttp>=3.9.0",
+    "playwright>=1.40.0",
+    "pytest>=8.0.0",
+    "pytest-playwright>=0.4.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-bdd>=6.1.0",
+    "pytest-html>=4.0.0",
+    "pytest-xdist>=3.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+orchestrate = "test_orchestrator:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["test_orchestrator"]
+
+[tool.pytest.ini_options]
+testpaths = ["step_defs"]
+pythonpath = ["."]
+addopts = "-v --tb=short"
+asyncio_mode = "auto"
+python_files = "test_*.py"
+python_classes = ""
+python_functions = "test_*"
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I"]

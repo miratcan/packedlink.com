@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ list_obj.title }} · Kaydet.link{% endblock %}
+{% block content %}
+  <h1>{{ list_obj.title }}</h1>
+  <p>{{ list_obj.description }}</p>
+  <p><strong>Küratör:</strong> {{ list_obj.curator_name|default:"Anon" }}</p>
+  {% if list_obj.status == 'expired' %}
+    <div class="empty-state">Bu liste expire oldu. İçerik yalnızca arşiv olarak gösterilir.</div>
+  {% endif %}
+  {% if links %}
+    <div class="link-list">
+      {% for link in links %}
+        <div class="link-card">
+          <h3><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.title }}</a></h3>
+          <p>{{ link.notes }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">Bu listede henüz link yok.</div>
+  {% endif %}
+{% endblock %}

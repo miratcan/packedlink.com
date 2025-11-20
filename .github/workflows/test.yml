@@ -1,0 +1,101 @@
+name: Test Suite
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11']
+        node-version: ['18', '20']
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Set up Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install Backend Dependencies
+      run: |
+        cd src/backend
+        pip install uv
+        uv sync --dev
+
+    - name: Run Backend Tests
+      run: |
+        cd src/backend
+        uv run pytest --cov=. --cov-report=xml
+
+    - name: Install Frontend Dependencies
+      run: |
+        cd src/frontend
+        npm ci
+
+    - name: Run Frontend Tests
+      run: |
+        cd src/frontend
+        npm test -- --coverage
+
+  e2e-tests:
+    runs-on: ubuntu-latest
+    needs: unit-tests
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+
+    - name: Install Playwright
+      run: |
+        npm install -D @playwright/test
+        npx playwright install --with-deps
+
+    - name: Run E2E Tests with Docker
+      run: |
+        docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from e2e-tests
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
+
+    - name: Upload Videos
+      uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+        name: test-videos
+        path: test-results/videos/
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: e2e-tests
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Run Lighthouse CI
+      uses: treosh/lighthouse-ci-action@v10
+      with:
+        urls: |
+          http://localhost:3000
+          http://localhost:3000/builder
+        uploadArtifacts: true
+        temporaryPublicStorage: true

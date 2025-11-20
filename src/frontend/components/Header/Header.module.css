@@ -1,0 +1,88 @@
+/* Header - Unified sticky header for landing page */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.navLinks {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+  }
+}
+
+.navLink {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding: var(--spacing-xxs) var(--radius);
+  border-radius: var(--radius);
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: var(--radius);
+}
+
+.navLink:focus {
+  outline: var(--border-width) solid var(--color-accent);
+  outline-offset: var(--border-width);
+}
+
+/* =================================
+   LOGO
+   ================================= */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo:focus {
+  outline: var(--border-width) solid var(--color-accent);
+  outline-offset: var(--border-width);
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius);
+  background: linear-gradient(to bottom right, var(--color-accent), var(--color-accent-hover));
+}
+
+.logoText {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+}

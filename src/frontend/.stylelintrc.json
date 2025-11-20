@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "color-no-hex": true,
+    "function-disallowed-list": ["rgba", "rgb", "hsl", "hsla"],
+    "declaration-property-value-disallowed-list": {
+      "/^(color|background|background-color|border|border-color|border-top-color|border-right-color|border-bottom-color|border-left-color|outline|outline-color|box-shadow|text-shadow)$/": [
+        "/^#/",
+        "/^rgba/",
+        "/^rgb/",
+        "/^hsl/",
+        "/^hsla/"
+      ]
+    },
+    "color-named": "never"
+  }
+}

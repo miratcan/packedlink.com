@@ -1,0 +1,83 @@
+/* Header - Unified sticky header for all pages */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* =================================
+   LOGO
+   ================================= */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius);
+  background: linear-gradient(to bottom right, var(--color-accent), var(--color-accent-hover));
+}
+
+.logoText {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+}
+
+/* =================================
+   RIGHT SIDE NAVIGATION
+   ================================= */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.navLink {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+.navLink:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}

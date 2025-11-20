@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Yayınlandı · Kaydet.link{% endblock %}
+{% block content %}
+  <nav class="breadcrumbs">adım 4 · <span>success</span></nav>
+  <h1>Liste yayınlandı! 🎉</h1>
+  <p>Public link ve yönetim linkin aşağıda.</p>
+  <div>
+    <h3>Public URL</h3>
+    <code>{{ public_url }}</code>
+  </div>
+  <div style="margin-top:1rem;">
+    <h3>Yönetim URL'i</h3>
+    <small>Bu link tek seferlik session erişimi verir. Yeni cihazda açarsan builder'a girer.</small>
+    <code>{{ manage_url }}</code>
+  </div>
+  <div style="margin-top: 2rem; display:flex; gap: 1rem;">
+    <a class="btn" href="{{ public_url }}" target="_blank" rel="noopener">Public sayfayı gör</a>
+    <a class="btn secondary" href="{% url 'lists:builder' manage_token=list_obj.manage_token %}">Builder'a dön</a>
+  </div>
+{% endblock %}

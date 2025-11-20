@@ -1,0 +1,269 @@
+/* =========================================
+   DESIGN TOKENS (Single Source of Truth)
+   ========================================= */
+:root {
+  /* Warm & Earthy Color Palette - Builder.io inspired */
+  --color-bg-warm: #FDFAF4;        /* Warm off-white background */
+  --color-cream: #F5F0E8;          /* Warm cream */
+  --color-accent: #C8734C;         /* Terracotta/clay accent */
+  --color-accent-hover: #B3623D;   /* Darker clay on hover */
+  --color-accent-active: #9F512F;  /* Darkest clay on active */
+
+  --color-surface: #FFFFFF;        /* Pure white for cards */
+  --color-background: #F5F0E8;     /* Same as cream for subtle backgrounds */
+  --color-border: #E8DFD3;         /* Warm beige border */
+
+  --color-text-primary: #2C2419;   /* Deep warm brown */
+  --color-text-secondary: #6B6159; /* Medium brown */
+  --color-sage: #7A8F6F;           /* Olive green accent */
+  --color-brown: #8B7355;          /* Warm brown for headers */
+
+  /* Legacy tokens for backward compatibility */
+  --color-dashboard-blue: #8B7355; /* Mapped to warm brown */
+  --color-icon-gray: #6B6159;      /* Mapped to secondary text */
+
+  /* Text colors - Dark backgrounds */
+  --color-text-on-dark-primary: rgba(255, 255, 255, 0.95);
+  --color-text-on-dark-secondary: rgba(255, 255, 255, 0.75);
+  --color-text-on-dark-tertiary: rgba(255, 255, 255, 0.7);
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.6);
+  --color-text-on-dark-subtle: rgba(255, 255, 255, 0.5);
+
+  /* Borders - Dark backgrounds */
+  --color-border-on-dark: rgba(255, 255, 255, 0.3);
+  --color-border-on-dark-hover: rgba(255, 255, 255, 0.5);
+
+  /* Backgrounds - Subtle overlays on dark */
+  --color-bg-overlay-subtle: rgba(255, 255, 255, 0.08);
+  --color-bg-overlay-medium: rgba(255, 255, 255, 0.1);
+  --color-bg-overlay-strong: rgba(255, 255, 255, 0.15);
+
+  /* Interactive states - Dashboard blue (legacy, now mapped to brown) */
+  --color-dashboard-blue-hover: #7A6449; /* Darker brown for hover */
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Typography - Minimal (h1, h2, h3, normal, small) */
+  --font-size-xs: 12px;     /* extra small - captions, metadata, notes */
+  --font-size-sm: 14px;     /* small */
+  --font-size-base: 16px;   /* normal */
+  --font-size-lg: 18px;     /* large */
+  --font-size-xl: 20px;     /* h3 */
+  --font-size-2xl: 24px;    /* h2 */
+  --font-size-3xl: 32px;    /* h1 */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Spacing */
+  --spacing-xxs: 8px;
+  --spacing-xs: 12px;
+  --spacing-sm: 16px;
+  --spacing-md: 20px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Border */
+  --border-width: 2px;       /* Standard border/outline thickness */
+
+  /* Border Radius - Design guide: Her şey 4px */
+  --radius: 4px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 30px 60px rgba(15, 23, 42, 0.45);
+
+  /* Legacy colors (mevcut kod için geçici) */
+  --background: #0f1115;
+  --foreground: #f8fafc;
+  --brand-500: #5b21b6;
+  --brand-600: #4c1d95;
+}
+
+/* =========================================
+   GLOBAL RESETS & BASE STYLES
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background: var(--color-bg-warm);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* =========================================
+   LAYOUT UTILITIES
+   ========================================= */
+.container {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* =========================================
+   COMPONENTS
+   ========================================= */
+
+/* Glass Panel - Design guide compliant */
+.glass-panel {
+  border-radius: var(--radius); /* 4px from design guide */
+  background: var(--color-surface); /* #FFFFFF */
+  border: 1px solid var(--color-border); /* #E5E7EB */
+  box-shadow: var(--shadow-sm); /* Hafif shadow */
+  padding: var(--spacing-lg); /* 24px internal spacing */
+}
+
+/* Buttons - Design guide compliant
+ * Note: These are legacy classes. New code should use Button component.
+ * See design-guide.md section 5 for button color rules.
+ */
+
+/* Primary Button - for LIGHT backgrounds (white, light gray) */
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius); /* 4px from design guide */
+  background: var(--color-dashboard-blue);
+  padding: var(--spacing-xs) var(--spacing-lg);
+  min-height: 36px; /* Design guide: 32-36px */
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.button-primary:hover {
+  background: var(--color-dashboard-blue-hover);
+}
+
+/* Primary Button - for DARK backgrounds (dashboard blue)
+ * Uses accent green for high contrast and CTA visibility
+ */
+.button-primary-on-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  background: var(--color-accent); /* #56BC8A - Accent green */
+  padding: var(--spacing-xs) var(--spacing-lg);
+  min-height: 36px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.button-primary-on-dark:hover {
+  background: var(--color-accent-hover);
+}
+
+.button-primary-on-dark:active {
+  background: var(--color-accent-active);
+}
+
+/* Ghost Button - for LIGHT backgrounds */
+.button-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius); /* 4px from design guide */
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-lg);
+  min-height: 36px; /* Design guide: 32-36px */
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.button-ghost:hover {
+  background: var(--color-background);
+}
+
+/* Ghost Button - for DARK backgrounds */
+.button-ghost-on-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border-on-dark);
+  padding: var(--spacing-xs) var(--spacing-lg);
+  min-height: 36px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-on-dark-primary);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button-ghost-on-dark:hover {
+  background: var(--color-bg-overlay-medium);
+  border-color: var(--color-border-on-dark-hover);
+}
+
+.button-ghost-on-dark:active {
+  background: var(--color-bg-overlay-strong);
+}
+
+/* Form Elements - Design guide compliant */
+input,
+textarea {
+  border-radius: var(--radius); /* 4px */
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-secondary);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-dashboard-blue);
+}
+
+label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* =========================================
+   UTILITY CLASSES - REMOVED
+   ========================================= */
+
+/*
+ * Utility classes have been removed in favor of semantic CSS Modules.
+ * See docs/development/css-guide.md for styling guidelines.
+ *
+ * All components now use semantic class names via CSS Modules:
+ * - Component.module.css files
+ * - Semantic naming (e.g., .container, .title, .content)
+ * - No utility classes (no .flex, .gap-xl, .text-primary, etc.)
+ */

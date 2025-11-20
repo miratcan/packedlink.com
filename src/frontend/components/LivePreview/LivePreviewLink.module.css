@@ -1,0 +1,70 @@
+/* LivePreviewLink - Individual link item in the preview */
+
+.linkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  position: relative;
+}
+
+.linkItem:hover .deleteButton {
+  opacity: 1;
+}
+
+.accentBar {
+  width: var(--radius);
+  min-height: 100%;
+  background: var(--color-accent);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.linkContent {
+  flex: 1;
+  min-width: 0;
+  padding-top: var(--border-width);
+}
+
+.linkTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  text-decoration: none;
+  display: block;
+  overflow-wrap: break-word;
+  transition: color 0.2s;
+}
+
+.linkTitle:hover {
+  color: var(--color-accent-hover);
+}
+
+.linkNote {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: var(--radius);
+  line-height: 1.4;
+}
+
+.deleteButton {
+  opacity: 0;
+  padding: var(--radius);
+  background: none;
+  border: none;
+  color: #EF4444;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+  flex-shrink: 0;
+  margin-top: var(--border-width);
+}
+
+.deleteButton:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.deleteButton:focus {
+  opacity: 1;
+  outline: var(--border-width) solid var(--color-accent);
+  outline-offset: var(--border-width);
+}
