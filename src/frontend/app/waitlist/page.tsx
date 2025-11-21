@@ -20,111 +20,74 @@ export default function WaitlistPage() {
       return
     }
 
-    // For now, just store in localStorage - you'll replace this with API call later
-    try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || ''}/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // Django forms expect this content type
-        },
-        body: new URLSearchParams({
-          'curator_email': email,
-          'title': 'New List', // Default value
-          'description': 'Created from waitlist', // Default value
-          'curator_name': 'Waitlist User', // Default value
-        }).toString(),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to join waitlist.');
-      }
-
-      // Backend redirects to builder page on success, we need to handle this
-      // For now, we'll just show success state. In a full integration,
-      // you might redirect the user to the builder page with the manage_token
-      // if the frontend was also intended to immediately handle the new list.
-      // Given the description, just saving the email is sufficient for the waitlist.
-
-      setSubmitted(true);
-    } catch (err) {
-      setError('Something went wrong. Please try again.');
-    }
+    // TODO: Connect to waitlist endpoint once available.
+    setSubmitted(true)
   }
 
   return (
-    <div className={styles.waitlistPage}>
+    <div className={styles.page}>
       <Header />
 
-      <main className={styles.mainContent}>
-        <div className={styles.container}>
-          {!submitted ? (
-            <>
-              <div className={styles.badge}>Coming Soon</div>
+      <main className={styles.main}>
+        <section className={styles.hero}>
+          <div className={styles.card}>
+            <span className={styles.pill}>Coming soon</span>
+            <p className={styles.eyebrow}>PackedLink waitlist</p>
+            <h1 className={styles.title}>We’re building the easiest way to share curated links.</h1>
+            <p className={styles.description}>
+              Join to get early access, launch updates, and creator tools before they ship.
+            </p>
 
-              <h1 className={styles.title}>
-                We're building something special
-              </h1>
-
-              <p className={styles.description}>
-                PackedLink is launching soon. Join the waitlist to be the first to know when we go live. You'll get early access and exclusive features.
-              </p>
-
+            {!submitted ? (
               <form onSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.inputWrapper}>
+                <div className={styles.inputRow}>
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your@email.com"
+                    placeholder="you@example.com"
                     className={styles.input}
                     required
                   />
-                  <Button
-                    variant="primary"
-                    context="dark"
-                    type="submit"
-                  >
+                  <Button variant="primary" context="dark" type="submit">
                     Join waitlist
                   </Button>
                 </div>
                 {error && <p className={styles.error}>{error}</p>}
+                <p className={styles.note}>No spam. We’ll only email you when we launch.</p>
               </form>
-
-              <p className={styles.note}>
-                No spam. We'll only email you when we launch.
-              </p>
-            </>
-          ) : (
-            <div className={styles.successState}>
-              <div className={styles.successIcon}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
+            ) : (
+              <div className={styles.successState}>
+                <span className={styles.successBadge}>You’re in</span>
+                <h2 className={styles.successTitle}>Thanks for joining</h2>
+                <p className={styles.successDescription}>
+                  We’ll email <strong>{email}</strong> with early access and launch news.
+                </p>
+                <Button href="/" variant="ghost" context="dark">
+                  Back to home
+                </Button>
               </div>
+            )}
+          </div>
 
-              <h2 className={styles.successTitle}>
-                You're on the list!
-              </h2>
-
-              <p className={styles.successDescription}>
-                Thanks for joining. We'll email you at <strong>{email}</strong> when we launch.
-              </p>
-
-              <Button
-                href="/"
-                variant="ghost"
-                context="dark"
-              >
-                Back to home
-              </Button>
+          <div className={styles.aside}>
+            <h2 className={styles.asideTitle}>What you’ll get</h2>
+            <div className={styles.asideList}>
+              <div className={styles.bullet}>
+                <span className={styles.dot} />
+                <span>Early access to curator tools</span>
+              </div>
+              <div className={styles.bullet}>
+                <span className={styles.dot} />
+                <span>Launch updates before anyone else</span>
+              </div>
+              <div className={styles.bullet}>
+                <span className={styles.dot} />
+                <span>Behind-the-scenes notes on building PackedLink</span>
+              </div>
             </div>
-          )}
-        </div>
-
-        {/* Decorative blobs */}
-        <div className={styles.blob1}></div>
-        <div className={styles.blob2}></div>
+          </div>
+        </section>
       </main>
     </div>
   )
