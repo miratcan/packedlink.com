@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
 import clsx from 'clsx'
 
 import { ErrorBoundary } from "@/components/ErrorBoundary/ErrorBoundary";
@@ -7,10 +6,7 @@ import "./globals.css";
 import styles from './layout.module.css'
 import Providers from "./providers";
 
-const display = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
-});
+const display = { variable: "" };
 
 export const metadata: Metadata = {
   title: "PackedLink",
