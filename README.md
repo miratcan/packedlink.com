@@ -12,6 +12,7 @@ Seçili linkleri rehber listelere dönüştür, tek linkle paylaş.
 - Blog/SEO yaklaşımı: `docs/marketing/seo-content-strategy.md`
 - Analitik/event kuralları: `docs/marketing/analytics-strategy.md`
 - Proje yapısı: `docs/project-structure.md`
+- Doküman yönetimi & single-source kuralı: `docs/README.md`
 
 ## Geliştirme (özet)
 - Backend: Django + uv; `just migrate | run | test | expire`
