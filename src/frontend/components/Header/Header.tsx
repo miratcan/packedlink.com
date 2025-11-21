@@ -14,6 +14,9 @@ export function Header() {
           </Link>
 
           <div className={styles.navLinks}>
+            <Link href="/blog" className={styles.navLink}>
+              Blog
+            </Link>
             <a href="#why" className={styles.navLink}>
               Why?
             </a>
