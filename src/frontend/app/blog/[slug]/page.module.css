@@ -217,7 +217,7 @@
   text-underline-offset: 6px;
 }
 
-:global(.skeleton-line) {
+.skeletonLine {
   display: inline-block;
   height: 14px;
   border-radius: var(--radius);

@@ -222,7 +222,7 @@
   }
 }
 
-:global(.skeleton-line) {
+.skeletonLine {
   display: inline-block;
   height: 14px;
   border-radius: var(--radius);

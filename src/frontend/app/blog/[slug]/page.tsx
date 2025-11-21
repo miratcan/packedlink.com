@@ -6,7 +6,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
 
 import { Header } from "@/components/Header/Header";
-import { fetchBlogPost, fetchBlogPosts } from "@/lib/api/blog";
+import { fetchBlogPost, fetchBlogPosts, type BlogPost } from "@/lib/api/blog";
 import { formatDate } from "@/lib/formatDate";
 import styles from "./page.module.css";
 
@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     throw error;
   }
 
-  let relatedPosts = [];
+  let relatedPosts: BlogPost[] = [];
   try {
     const related = await fetchBlogPosts({ page: 1 });
     relatedPosts = related.items.filter((item) => item.slug !== post.slug).slice(0, 3);
