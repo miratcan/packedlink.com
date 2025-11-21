@@ -1,23 +1,59 @@
 # PackedLink
 
-Seçili linkleri rehber listelere dönüştür, tek linkle paylaş.
+Turn curated links into organized lists, share with a single link.
 
-## Hızlı Bakış (referanslar)
-- Ürün ruhu ve prensipler: `docs/zen.md`
-- Hikâye, persona özeti, pazar içgörüleri: `docs/vision.md`
-- Tasarım ve stil tek kaynağı: `docs/product/design-guide.md` + `docs/development/css-guide.md`
-- Persona detayı: `docs/product/personas.md`
-- Rekabet özetleri: `docs/product/competitive-analysis.md`
-- Teknik kararlar: `docs/technical/technical-decisions.md`
-- Blog/SEO yaklaşımı: `docs/marketing/seo-content-strategy.md`
-- Analitik/event kuralları: `docs/marketing/analytics-strategy.md`
-- Proje yapısı: `docs/project-structure.md`
-- Doküman yönetimi & single-source kuralı: `docs/README.md`
+## Quick Reference
 
-## Geliştirme (özet)
-- Backend: Django + uv; `just migrate | run | test | expire`
-- Frontend: Next.js 14 + TypeScript + CSS Modules (design tokens) + React Query + Zustand
-- Ortam dosyaları: `src/backend/.env`, `src/frontend/.env.local`
-- Stil tokenları: `src/frontend/app/globals.css`
+### Product & Strategy
+- **Product principles:** `docs/zen.md`
+- **Vision & market insights:** `docs/vision.md`
+- **Features overview:** `docs/product/features.md`
+- **Personas:** `docs/product/personas.md`
+- **Competitive analysis:** `docs/product/competitive-analysis.md`
 
-Detaylar yukarıdaki dokümanlarda. README minimal tutulur; değişiklik gerektiğinde ilgili dokümanı güncelle.
+### Design & Technical
+- **Design & style guide:** `docs/product/design-guide.md` + `docs/development/css-guide.md`
+- **Tech stack:** `docs/technical/tech-stack.md`
+- **Technical decisions:** `docs/technical/technical-decisions.md`
+- **Project structure:** `docs/project-structure.md`
+
+### Marketing & Analytics
+- **SEO/Blog strategy:** `docs/marketing/seo-content-strategy.md`
+- **Analytics/event rules:** `docs/marketing/analytics-strategy.md`
+
+### Development & Deployment
+- **Getting started:** `docs/development/getting-started.md`
+- **GitHub workflow:** `docs/development/github-workflow.md`
+- **Deployment guide:** `docs/deployment/guide.md`
+- **Documentation management:** `docs/README.md`
+
+## Development (Quick Start)
+
+**Backend:** Django + uv
+```bash
+cd src/backend
+uv sync
+uv run python manage.py migrate
+uv run python manage.py runserver
+```
+
+**Frontend:** Next.js 14 + TypeScript + CSS Modules + React Query + Zustand
+```bash
+cd src/frontend
+npm install
+npm run dev
+```
+
+**Environment files:** `src/backend/.env`, `src/frontend/.env.local`
+**Design tokens:** `src/frontend/app/globals.css`
+
+For detailed setup instructions, see `docs/development/getting-started.md`.
+
+---
+
+**Contributing?** Read `CONTRIBUTING.md` for guidelines.
+**AI agents?** Start with `AGENTS.md` for the complete workflow.
+
+---
+
+This README is kept minimal. For changes, update the relevant document above.

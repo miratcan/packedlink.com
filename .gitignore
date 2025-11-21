@@ -42,3 +42,4 @@ ENV/
 *.sqlite3
 *.db
 .cache/
+repomix-output.xml
