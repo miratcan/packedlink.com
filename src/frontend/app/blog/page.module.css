@@ -32,12 +32,6 @@
   gap: var(--spacing-sm);
 }
 
-.kicker {
-  font-size: var(--font-size-sm);
-  letter-spacing: 0.08em;
-  color: var(--color-text-secondary);
-}
-
 .title {
   font-size: clamp(28px, 3vw, 36px);
   line-height: 1.2;

@@ -45,7 +45,6 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexProps) {
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
-            <p className={styles.kicker}>PackedLink Blog</p>
             <h1 className={styles.title}>Curated notes on link-first publishing.</h1>
             <p className={styles.subtitle}>
               Product decisions, launch experiments, and the craft of keeping curated lists useful.
@@ -60,8 +59,6 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexProps) {
             </div>
           </div>
           <div className={styles.heroCard}>
-            <div className={styles.heroBadge}>Builder log</div>
-            <p className={styles.heroCardTitle}>Shipping in public</p>
             <p className={styles.heroCardText}>
               We design for curators. Expect transparent updates, lessons learned, and practical link
               playbooks.
