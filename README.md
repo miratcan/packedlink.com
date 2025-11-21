@@ -36,7 +36,7 @@ Kaydet.link, seçtiğin linkleri başkalarına rehber olacak listelere dönüşt
 - 🧱 **Builder deneyimi:** Link ekleme / silme formu, liste meta alanları ve publish butonu tek ekranda tutuldu.
 - 🕰️ **Ömür mantığı:** `List.publish()` varsayılan 30 günlük yaşam süresi ayarlar; `lists.management.commands.expire_lists` Cron/Just ile tetiklenir.
 - 🔐 **Tek seferlik yönetim linki:** Publish sonrası gösterilen `?auth=` parametreli link, yeni cihazın builder'a erişmesini sağlar ve session'a kaydedilir.
-- 📡 **Event + analytics:** `ListEvent.log` DB'ye yazar, `lists.posthog.capture_list_event` PostHog'a opsiyonel gönderir; event isimleri `docs/marketing/analytics-strategy.md` ile uyumlu.
+- 📡 **Event + analytics:** `ListEvent.log` DB'ye yazar, `lists.posthog.capture_list_event` PostHog'a opsiyonel gönderir; event isimleri `docs/marketing/analytics_strategy.md` ile uyumlu.
 - 🧪 **Pytest altyapısı:** `uv run pytest` publish akışı + expire komutunu doğrular; Justfile `test` tarifi pytest'e yönlendirildi.
 
 ## Quick Start
@@ -118,10 +118,10 @@ Zen'deki **ZEN-SOLO-FIT** ve **ZEN-CORE-FIRST** kuralları bu yaklaşımı zorun
 
 Destekleyici notlar:
 - [`docs/product/personas.md`](docs/product/personas.md) → Güncel persona seti ve öncelikleri.
-- [`docs/product/competitive-analysis.md`](docs/product/competitive-analysis.md) → Mikro rakipler ve fark noktaları.
+- [`docs/product/competitive_analysis.md`](docs/product/competitive_analysis.md) → Mikro rakipler ve fark noktaları.
 - `docs/product/phases/` → Gelecek faz arşivi.
-- `docs/marketing/analytics-strategy.md` ve `docs/marketing/seo-content-strategy.md` → Ölçüm & içerik planı.
-- `docs/technical/technical-decisions.md` → Teknik tercihler.
+- `docs/marketing/analytics_strategy.md` ve `docs/marketing/seo_content_strategy.md` → Ölçüm & içerik planı.
+- `docs/technical/technical_decisions.md` → Teknik tercihler.
 
 ## Lisans
 

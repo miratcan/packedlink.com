@@ -60,29 +60,16 @@ To ensure consistency and efficiency, please refer to the following documentatio
 *   **`docs/zen.md`**: Principles and "how we work." **When to use:** Before planning any new feature or making significant architectural decisions, to align with core project philosophy.
 *   **`docs/vision.md`**: Long-term vision, market insights, and persona framework. **When to use:** To understand the long-term goals and market context of the project, especially during product strategy discussions.
 *   **`docs/project-structure.md`**: Overview of the project's codebase organization. **When to use:** To quickly understand where different parts of the project reside and how they are organized.
-*   **`docs/marketing/analytics-strategy.md`**: Defines the strategy for collecting and using analytics data. **When to use:** When implementing new features that generate user data or when analyzing user behavior.
+*   **`docs/marketing/analytics_strategy.md`**: Defines the strategy for collecting and using analytics data. **When to use:** When implementing new features that generate user data or when analyzing user behavior.
 *   **`docs/marketing/brand-voice.md`**: Guidelines for the project's communication style and tone. **When to use:** When writing any user-facing text, marketing content, or preparing communications.
-*   **`docs/marketing/seo-content-strategy.md`**: Strategy for optimizing content for search engines. **When to use:** When creating new content, especially public-facing lists or landing pages, to ensure SEO best practices are followed.
-*   **`docs/product/competitive-analysis.md`**: Analysis of key competitors and market positioning. **When to use:** When evaluating new features or refining product strategy to understand the competitive landscape.
+*   **`docs/marketing/seo_content_strategy.md`**: Strategy for optimizing content for search engines. **When to use:** When creating new content, especially public-facing lists or landing pages, to ensure SEO best practices are followed.
+*   **`docs/product/competitive_analysis.md`**: Analysis of key competitors and market positioning. **When to use:** When evaluating new features or refining product strategy to understand the competitive landscape.
 *   **`docs/product/design-guide.md`**: Comprehensive guide to the project's design system and principles. **When to use:** When designing new UI components, reviewing existing designs, or ensuring visual consistency.
 *   **`docs/product/personas.md`**: Detailed descriptions of target user segments. **When to use:** To understand the users for whom features are being developed, especially during design and feature planning.
 *   **`docs/technical/blog-system.md`**: Technical overview of the project's blog system. **When to use:** When making changes or additions to the blog functionality.
-*   **`docs/technical/technical-decisions.md`**: Records fundamental technical and architectural decisions. **When to use:** To understand the reasoning behind key technical choices and ensure new implementations align with them.
+*   **`docs/technical/technical_decisions.md`**: Records fundamental technical and architectural decisions. **When to use:** To understand the reasoning behind key technical choices and ensure new implementations align with them.
 *   **`docs/development/agent-system-improvements.md`**: Details the improved workflow and rules for interacting with AI agents. **When to use:** Constantly refer to this when working with agents to ensure proper delegation, design validation, and adherence to development rules.
 *   **`docs/development/css-guide.md`**: Guidelines for CSS, including design token usage and enforcement. **When to use:** When writing or reviewing any CSS, to ensure adherence to styling conventions and proper use of design tokens.
-
+*   **`docs/development/designer-validation-checklist.md`**: Checklist for designers to validate implementations. **When to use:** As a designer, after an implementation, to ensure the UI/UX meets all quality standards; as a developer, to understand the expectations for design validation.
 
 The project's current focus and objectives will now be tracked via GitHub milestones.
-
-## Design Token Compliance Guidelines
-
-### 1. Design Token Compliance
-
-- [ ] **0 hardcode renk:** Hiç `#hex` veya `rgba()` yok
-- [ ] **100% token kullanımı:** Tüm renkler `var(--token-name)` formatında
-- [ ] **Semantic naming:** Token isimleri semantik (örn: `--color-danger` not `--color-red`)
-
-**Validation komutu:**
-```bash
-./scripts/validate-design-tokens.sh
-```
