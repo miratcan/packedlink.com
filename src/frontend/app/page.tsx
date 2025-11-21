@@ -21,15 +21,13 @@ export default function HomePage() {
 function Hero() {
   return (
     <section className={styles.heroSection}>
-      <div className={styles.heroContainer}>
+      <div className={`${styles.heroContainer} ${styles.contentWidth}`}>
         <div className={styles.heroGrid}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>Pack your links. Share anywhere.</h1>
-
             <p className={styles.heroSubtitle}>
               YouTube courses, coffee shops, jewelry products. Pack your frequently used links in one place. Share in bio, keep it always updated.
             </p>
-
             <div className={styles.heroCta}>
               <Button href="/#waitlist" size="large" variant="primary" context="dark">
                 Join waitlist
@@ -102,7 +100,7 @@ function Hero() {
 function ValueProps() {
   return (
     <section id="why" className={styles.valueSection}>
-      <div className={styles.valueContainer}>
+      <div className={`${styles.valueContainer} ${styles.contentWidth}`}>
         <div className={styles.valueSectionHeader}>
           <h2 className={styles.valueSectionTitle}>Why PackedLink?</h2>
           <p className={styles.valueSectionSubtitle}>
@@ -160,7 +158,7 @@ function ValueProps() {
 function UseCases() {
   return (
     <section id="who" className={styles.useCasesSection}>
-      <div className={styles.useCasesContainer}>
+      <div className={`${styles.useCasesContainer} ${styles.contentWidth}`}>
         <div className={styles.useCasesSectionHeader}>
           <h2 className={styles.useCasesSectionTitle}>Who uses it?</h2>
         </div>
@@ -245,7 +243,7 @@ function UseCaseCard({ title, description, examples }: UseCaseCardProps) {
 function Trust() {
   return (
     <section className={styles.trustSection}>
-      <div className={styles.trustContainer}>
+      <div className={`${styles.trustContainer} ${styles.contentWidth}`}>
         <div className={styles.trustGrid}>
           <TrustItem
             title="Doesn't put you in a tracking trap"
