@@ -22,6 +22,7 @@ Follow these steps for every development task, from a simple bug fix to a new fe
 - **Goal:** Collect context from the existing codebase and documentation to inform your implementation plan.
 - **Actions:**
     - **Codebase Analysis:** Use `codebase_investigator` for complex tasks or `search_file_content` / `glob` for targeted searches.
+    - **Reuse Check (UI & API):** Before adding new components/layouts or endpoints, scan existing components/helpers to avoid duplicating patterns. If nothing fits, note that in your plan.
     - **Documentation Review:** Refer to `docs/README.md` to locate and read relevant docs. Key documents include:
         - For UI/UX changes: `docs/product/design-guide.md`, `docs/product/personas.md`
         - For new features: `docs/vision.md`, `docs/product/features.md`, `docs/product/competitive-analysis.md`

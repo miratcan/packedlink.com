@@ -23,16 +23,6 @@
   align-items: center;
 }
 
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: calc(var(--radius) * 2);
-  padding: var(--spacing-lg);
-  box-shadow: var(--shadow-sm);
-  display: grid;
-  gap: var(--spacing-md);
-}
-
 .eyebrow {
   font-size: var(--font-size-sm);
   letter-spacing: 0.08em;
@@ -133,16 +123,6 @@
 
 .successDescription strong {
   color: var(--color-text-primary);
-}
-
-.aside {
-  background: var(--color-cream);
-  border: 1px solid var(--color-border);
-  border-radius: calc(var(--radius) * 2);
-  padding: var(--spacing-lg);
-  box-shadow: var(--shadow-sm);
-  display: grid;
-  gap: var(--spacing-sm);
 }
 
 .asideTitle {

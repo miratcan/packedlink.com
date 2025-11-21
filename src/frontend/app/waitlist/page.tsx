@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Header } from '@/components/Header/Header'
 import { Button } from '@/components/Button/Button'
+import { SurfaceCard } from '@/components/SurfaceCard/SurfaceCard'
 import styles from './page.module.css'
 
 export default function WaitlistPage() {
@@ -30,7 +31,7 @@ export default function WaitlistPage() {
 
       <main className={styles.main}>
         <section className={styles.hero}>
-          <div className={styles.card}>
+          <SurfaceCard>
             <span className={styles.pill}>Coming soon</span>
             <p className={styles.eyebrow}>PackedLink waitlist</p>
             <h1 className={styles.title}>We’re building the easiest way to share curated links.</h1>
@@ -68,9 +69,9 @@ export default function WaitlistPage() {
                 </Button>
               </div>
             )}
-          </div>
+          </SurfaceCard>
 
-          <div className={styles.aside}>
+          <SurfaceCard tone="muted">
             <h2 className={styles.asideTitle}>What you’ll get</h2>
             <div className={styles.asideList}>
               <div className={styles.bullet}>
@@ -86,7 +87,7 @@ export default function WaitlistPage() {
                 <span>Behind-the-scenes notes on building PackedLink</span>
               </div>
             </div>
-          </div>
+          </SurfaceCard>
         </section>
       </main>
     </div>
