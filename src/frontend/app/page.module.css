@@ -90,37 +90,12 @@
   background: linear-gradient(to bottom, var(--color-brown), rgba(139, 115, 85, 0.97), rgba(139, 115, 85, 0.95));
   color: white;
   overflow: hidden;
-  padding-top: 2rem;
-}
-
-@media (min-width: 640px) {
-  .heroSection {
-    padding-top: 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .heroSection {
-    padding-top: 4rem;
-  }
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-xxl);
 }
 
 .heroContainer {
-  max-width: 1280px;
+  width: min(1120px, 100%);
   margin: 0 auto;
-  padding: 0 1rem 4rem;
-}
-
-@media (min-width: 640px) {
-  .heroContainer {
-    padding: 0 1.5rem 6rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .heroContainer {
-    padding: 0 2rem 7rem;
-  }
 }
 
 .heroGrid {
@@ -378,31 +353,13 @@
    ========================================= */
 .valueSection {
   background: var(--color-cream);
-  padding: 4rem 0;
-}
-
-@media (min-width: 640px) {
-  .valueSection {
-    padding: 6rem 0;
-  }
+  padding: var(--spacing-xl) 0;
 }
 
 .valueContainer {
-  max-width: 1152px;
+  width: min(1120px, 100%);
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-@media (min-width: 640px) {
-  .valueContainer {
-    padding: 0 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .valueContainer {
-    padding: 0 2rem;
-  }
+  padding: 0 var(--spacing-lg);
 }
 
 .valueSectionHeader {
@@ -489,32 +446,14 @@
    "Kimler kullanır?" (Warm background)
    ========================================= */
 .useCasesSection {
-  padding: 4rem 0;
+  padding: var(--spacing-xl) 0;
   background: var(--color-bg-warm);
 }
 
-@media (min-width: 640px) {
-  .useCasesSection {
-    padding: 6rem 0;
-  }
-}
-
 .useCasesContainer {
-  max-width: 1152px;
+  width: min(1120px, 100%);
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-@media (min-width: 640px) {
-  .useCasesContainer {
-    padding: 0 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .useCasesContainer {
-    padding: 0 2rem;
-  }
+  padding: 0 var(--spacing-lg);
 }
 
 .useCasesSectionHeader {
@@ -554,9 +493,9 @@
 }
 
 .useCaseCard {
-  padding: 1.5rem;
+  padding: var(--spacing-lg);
   border-radius: var(--radius);
-  background: white;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   transition: box-shadow 0.2s;
 }
@@ -621,31 +560,13 @@
 .trustSection {
   background: var(--color-brown);
   color: white;
-  padding: 5rem 0;
-}
-
-@media (min-width: 640px) {
-  .trustSection {
-    padding: 7rem 0;
-  }
+  padding: var(--spacing-xl) 0;
 }
 
 .trustContainer {
-  max-width: 1152px;
+  width: min(1120px, 100%);
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-@media (min-width: 640px) {
-  .trustContainer {
-    padding: 0 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .trustContainer {
-    padding: 0 2rem;
-  }
+  padding: 0 var(--spacing-lg);
 }
 
 .trustGrid {

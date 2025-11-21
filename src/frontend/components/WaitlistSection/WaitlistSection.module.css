@@ -5,6 +5,15 @@
   gap: var(--spacing-lg);
 }
 
+.container {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
 .content {
   display: grid;
   gap: var(--spacing-xs);
@@ -29,9 +38,7 @@
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-lg);
+  display: contents;
 }
 
 .form {

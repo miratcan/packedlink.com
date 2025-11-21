@@ -26,12 +26,13 @@ export function WaitlistSection() {
 
   return (
     <section id="waitlist" className={styles.section}>
-      <SurfaceCard>
-        <div className={styles.content}>
-          <span className={styles.pill}>Coming soon</span>
-          <h2>Get early access</h2>
-          <p className={styles.subtitle}>
-            Join to get launch updates and curator tools before anyone else.
+      <div className={styles.container}>
+        <SurfaceCard>
+          <div className={styles.content}>
+            <span className={styles.pill}>Coming soon</span>
+            <h2>Get early access</h2>
+            <p className={styles.subtitle}>
+              Join to get launch updates and curator tools before anyone else.
           </p>
         </div>
 
@@ -67,23 +68,24 @@ export function WaitlistSection() {
         )}
       </SurfaceCard>
 
-      <SurfaceCard tone="muted">
-        <h3>What you’ll get</h3>
-        <div className={styles.asideList}>
-          <div className={styles.bullet}>
-            <span className={styles.dot} />
-            <span>Early access to curator tools</span>
+        <SurfaceCard tone="muted">
+          <h3>What you’ll get</h3>
+          <div className={styles.asideList}>
+            <div className={styles.bullet}>
+              <span className={styles.dot} />
+              <span>Early access to curator tools</span>
+            </div>
+            <div className={styles.bullet}>
+              <span className={styles.dot} />
+              <span>Launch updates before anyone else</span>
+            </div>
+            <div className={styles.bullet}>
+              <span className={styles.dot} />
+              <span>Behind-the-scenes notes on building PackedLink</span>
+            </div>
           </div>
-          <div className={styles.bullet}>
-            <span className={styles.dot} />
-            <span>Launch updates before anyone else</span>
-          </div>
-          <div className={styles.bullet}>
-            <span className={styles.dot} />
-            <span>Behind-the-scenes notes on building PackedLink</span>
-          </div>
-        </div>
-      </SurfaceCard>
+        </SurfaceCard>
+      </div>
     </section>
   );
 }
