@@ -381,7 +381,7 @@ Eğer hardcode renk bulunursa script hata verir ve commit yapılamaz.
 #### 3. Designer Validation Checklist
 
 Her implementation sonrası Designer şu checklist'i kullanmalı:
-📋 **[Designer Validation Checklist](./designer-validation-checklist.md)**
+
 
 Pre-implementation spec'ten post-implementation validation'a kadar tüm adımları içerir.
 
@@ -413,7 +413,7 @@ Pre-implementation spec'ten post-implementation validation'a kadar tüm adımlar
 - [ ] **Validation script çalıştırıldı:** `./scripts/validate-design-tokens.sh` ✅
 - [ ] **Screenshot review yapıldı:** Text görünür mü? Contrast yeterli mi?
 - [ ] **Code review yapıldı:** 0 hardcode renk, 100% token usage
-- [ ] **Design Validation Checklist kullanıldı:** [designer-validation-checklist.md](./designer-validation-checklist.md)
+
 
 ---
 

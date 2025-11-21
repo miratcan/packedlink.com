@@ -1,6 +1,6 @@
 # The ZEN of PackedLink
 
-This document defines the spirit and philosophy of PackedLink. For technical decisions, see `technical_decisions.md`.
+This document defines the spirit and philosophy of PackedLink. For technical decisions, see `technical-decisions.md`.
 
 ## Focus
 
