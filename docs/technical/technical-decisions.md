@@ -2,6 +2,50 @@
 
 Bu doküman, PackedLink'in teknik kararlarını ve arkasındaki mantığı içerir.
 
+## Karar Alma Çerçevesi
+
+Bu bölüm, kaydet.link projesi içindeki önemli teknik kararların teklif edilme, tartışılma ve nihai hale getirilme sürecini özetlemektedir. Amaç, şeffaflığı sağlamak, farklı bakış açılarını toplamak ve projenin vizyonu ve ilkeleriyle (bkz. `docs/zen.md`) uyumlu, sağlam kararlar almaktır.
+
+### Teknik Karar Talebi (TKT) Süreci
+
+Yeni bir teknoloji benimsenmesi, önemli bir mimari değişiklik veya birden fazla bileşeni/ekibi etkileyen bir karar için bir TKT başlatılmalıdır.
+
+1.  **Başlatma:** Teklif sahibi, aşağıdaki şablonu kullanarak bir TKT belgesi taslağı oluşturur.
+2.  **İnceleme ve Tartışma:** TKT, ilgili paydaşlarla (örn. çekirdek geliştirme ekibi, ürün sahipleri) inceleme ve tartışma için paylaşılır. Bu, eşzamansız (belgeye yapılan yorumlar) veya eşzamanlı (özel bir toplantı) olarak gerçekleşebilir.
+3.  **İyileştirme:** Geri bildirimlere dayanarak, teklif sahibi TKT'yi iyileştirir.
+4.  **Sonuçlandırma:** Bir fikir birliğine varıldığında veya belirlenen yetkili tarafından bir karar alındığında, TKT nihai hale getirilir ve bu `technical-decisions.md` belgesine dahil edilir veya buradan referans verilir. Karar, gerekçesi ve değerlendirilen alternatifler belgelenir.
+
+### TKT Şablonu
+
+```markdown
+### TKT-YYYYAAXX-KISA-BAŞLIK
+
+*   **Durum:** [Önerildi | Onaylandı | Reddedildi | TKT-XXXX Tarafından Geçersiz Kılındı]
+*   **Teklif Sahibi:** [Adınız/Ekibiniz/AI Ajanı Tanımlayıcısı]
+*   **Tarih:** YYYY-AA-GG
+*   **Problem Bildirimi:**
+    *   Çözmeye çalıştığımız belirli sorun nedir?
+    *   Mevcut sınırlamalar veya zorluklar nelerdir?
+*   **Önerilen Çözüm:**
+    *   Önerilen teknik kararı ayrıntılı olarak açıklayın.
+    *   Sorun bildirimini nasıl ele alıyor?
+    *   İlgili anahtar bileşenler, teknolojiler veya yaklaşımlar nelerdir?
+*   **Değerlendirilen Alternatifler:**
+    *   İncelenen diğer seçenekleri kısaca açıklayın.
+    *   Neden seçilmediler (örn. karmaşıklık, maliyet, performans, sürdürülebilirlik)?
+*   **Artıları ve Eksileri:**
+    *   **Artıları:** Önerilen çözümün faydalarını listeleyin.
+    *   **Eksileri:** Dezavantajları, riskleri veya potansiyel zorlukları listeleyin.
+*   **Etki:**
+    *   Uygulama için tahmini çaba nedir?
+    *   Mevcut sistemler, performans, güvenlik ve geliştirici deneyimi üzerindeki etkileri nelerdir?
+    *   Gelecekteki geliştirme veya ölçeklenebilirlik için herhangi bir çıkarım var mı?
+*   **Bağımlılıklar:**
+    *   Gerekli başka kararlar veya ön koşullar var mı?
+*   **Açık Sorular/Tartışma Noktaları:**
+    *   Çözülmemiş sorunlar veya daha fazla tartışma gerektiren noktalar.
+```
+
 ## URL Schemas
 
 ### Temel URL Yapısı
