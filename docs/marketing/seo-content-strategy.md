@@ -1,81 +1,81 @@
-# Content & SEO Strategy (Sürekli Üretim)
+# Content & SEO Strategy (Continuous Production)
 
-PackedLink’in büyümesi SEO'ya dayanarak başlamıyor; ana dağıtım kanalı gerçek Elif ve Ali hikâyeleri. Yine de içerik üretimi disipline olsun diye süreklilik odaklı bir plan takip edilir.
-
----
-
-## 1. Amaç
-
-- Persona bazlı landing ve içeriklerle paylaşımı kolaylaştırmak.
-- İlk 20 aktif kullanıcıya referans olacak “örnek liste” arşivi oluşturmak.
-- Uzun vadeli SEO için tohum atmak (clean URL + structured data), ama şimdilik trafik hedefi koymamak.
+PackedLink’s growth does not start by relying on SEO; the primary distribution channel is real stories from Elif and Ali. Still, to keep content production disciplined, we follow a continuity-focused plan.
 
 ---
 
-## 2. İçerik Sütunları
+## 1. Purpose
 
-| Sütun | Kim için? | İçerik Tipi | Not |
+- Make sharing easier with persona-based landings and content.
+- Build an “example list” archive to reference the first 20 active users.
+- Plant seeds for long-term SEO (clean URL + structured data) without setting traffic targets for now.
+
+---
+
+## 2. Content Pillars
+
+| Pillar | For whom? | Content Type | Note |
 |------|-----------|-------------|-----|
-| **Use-case landing’leri** | Elif, Ali, Kaynak küratörü | `/affiliate`, `/mekan`, `/kaynak` sayfaları | Hero mesaj + örnek listeler + CTA |
-| **Örnek listeler** | Yeni ziyaretçi | “Bebek alışveriş rehberi”, “Kadıköy kahve turu” | Ürünün çıktısını gösterir, paylaşılabilir |
-| **Mini rehberler / blog** | Arama yapan kullanıcı | “DM kaosu nasıl biter?”, “WhatsApp için rehber hazırlama” | 600-800 kelime, persona sorununu çözer |
-| **Dokümantasyon içerikleri** | SEO geleceği | Clean sitemap, structured data, metadata | Teknik ekip için hatırlatma |
+| **Use-case landings** | Elif, Ali, Resource curator | `/affiliate`, `/mekan`, `/kaynak` pages | Hero message + example lists + CTA |
+| **Example lists** | New visitor | “Baby Shopping Guide”, “Kadıköy coffee tour” | Shows the product output, shareable |
+| **Mini guides / blog** | Searching user | “How to end DM chaos?”, “Preparing a guide for WhatsApp” | 600-800 words, solves a persona problem |
+| **Documentation content** | SEO’s future | Clean sitemap, structured data, metadata | Reminder for the technical team |
 
-Her içerik parçası “aynı soruyu iki kez cevaplama” temasına bağlanmalı.
-
----
-
-## 3. Anahtar Kelime Yaklaşımı
-
-- **Türkçe düşük hacimli, yüksek niyetli sorgular**: “link listesi oluştur”, “kaynakları tek linkte paylaş”, “dm sorularına tek link”.
-- **Persona terimleri**: “affiliate linkleri düzenleme”, “arkadaşlara mekan rehberi yollama”, “öğrenci kaynak listesi”.
-- Araç: Ahrefs/LowFruits yerine manuel SERP incelemesi + Search Console verisi yeterli.
-- Hedef: Başlangıçta 5–10 parça içerik yayıp indeks görmek; sonrasında haftalık/aylık düzenli üretimi sürdürmek.
+Every content piece should tie back to the theme of “not answering the same question twice.”
 
 ---
 
-## 4. Teknik SEO Minimumu
+## 3. Keyword Approach
 
-1. **Temiz URL yapısı**  
-   - `/l/{slug}` liste, `/u/{username}` profil. Başlık + açıklama meta’ları otomatik.
+- **Low-volume, high-intent Turkish queries:** “link listesi oluştur”, “kaynakları tek linkte paylaş”, “dm sorularına tek link”.
+- **Persona terms:** “affiliate linkleri düzenleme”, “arkadaşlara mekan rehberi yollama”, “öğrenci kaynak listesi”.
+- Tooling: Manual SERP review + Search Console data is sufficient instead of Ahrefs/LowFruits.
+- Target: Publish 5–10 pieces initially to see indexing; then maintain weekly/monthly steady production.
+
+---
+
+## 4. Technical SEO Minimum
+
+1. **Clean URL structure**  
+   - `/l/{slug}` for list, `/u/{username}` for profile. Title + description meta auto-generated.
 
 2. **Structured Data (ItemList)**  
-   - Public liste sayfalarına JSON-LD; arama motoru listeleri anlayabilsin.
+   - JSON-LD on public list pages so search engines understand lists.
 
 3. **Open Graph / Twitter Cards**  
-   - Her liste paylaşıldığında görsel/metin default gelsin; kullanıcı güncelleyebilsin (Focus dosyasındaki soru 3 ile bağlı).
+   - Default visuals/text when any list is shared; user can update (linked to question 3 in the Focus doc).
 
-4. **Basit sitemap + robots**  
-   - `site.com/sitemap.xml` ve `robots.txt` Next.js rakamlarıyla otomatiklenir.
-
----
-
-## 5. Yayın Ritmi ve Backlog
-
-- **Ritim:** Her hafta en az 1 landing veya örnek liste + 1 mini rehber/blog; kapasite artarsa artırılır ama hedef sürdürülebilir tempo.
-- **Başlangıç backlog'u:**
-  - `/affiliate` ve `/mekan` landing’leri (persona problemleri + CTA)
-  - Örnek liste: “Bebek Alışveriş Rehberi” (ekran görüntüsü + gerçek linkler)
-  - Blog: “DM’de aynı soruyu kaç kere cevapladın?” (paylaşılabilir, sosyal içerik)
-  - `/kaynak` landing’i + öğretmen örnek listesi
-- **Canlıdan gelenler:** Pilot kullanıcı listeleri “Yapım Aşamasında” blog bölümünde toplanır, tamamlandıkça yayına alınır.
+4. **Simple sitemap + robots**  
+   - `site.com/sitemap.xml` and `robots.txt` automated with Next.js defaults/config.
 
 ---
 
-## 6. Dağıtım
+## 5. Publishing Cadence and Backlog
 
-- **Instagram/TikTok DM’leri:** Persona bazlı landing URL’leri.
-- **Twitter/LinkedIn:** Örnek liste ekran görüntüsü + “Bu listeyi PackedLink ile yaptım” copy’si.
-- **Newsletter/WhatsApp:** Kısa metin + tek link (platform testleri).
-- **SEO:** Şimdilik Search Console + manuel backlink (kişisel blog, Medium) yeterli.
+- **Cadence:** At least 1 landing or example list + 1 mini guide/blog every week; increase if capacity allows but aim for sustainable pace.
+- **Initial backlog:**
+  - `/affiliate` and `/mekan` landings (persona problems + CTA)
+  - Example list: “Baby Shopping Guide” (screenshot + real links)
+  - Blog: “How many times have you answered the same question in DMs?” (shareable, social content)
+  - `/kaynak` landing + teacher example list
+- **From live usage:** Pilot user lists gathered in the “In Progress” blog section, published as they are completed.
 
 ---
 
-## 7. Başarı Ölçümü
+## 6. Distribution
 
-- İçerik başına min. 50 ziyaret (sosyal veya direkt).
-- Landing → signup dönüşümü ≥ %5 (event: `landing_signup_click`).
-- Örnek listelerden gelen “liste kopyala” butonu kullanım sayısı.
-- Search Console’da indekslenmiş sayfa sayısı (baseline > 0).
+- **Instagram/TikTok DMs:** Persona-based landing URLs.
+- **Twitter/LinkedIn:** Example list screenshot + “I made this list with PackedLink” copy.
+- **Newsletter/WhatsApp:** Short copy + single link (platform tests).
+- **SEO:** For now, Search Console + manual backlinks (personal blog, Medium) are enough.
 
-Her yeni içerik yayınlandığında analytics dosyasındaki event planı gözden geçirilecek; ekstra event gerekiyorsa eklemeden önce burada not al.
+---
+
+## 7. Success Measurement
+
+- Minimum 50 visits per content piece (social or direct).
+- Landing → signup conversion ≥ 5% (event: `landing_signup_click`).
+- Usage count of the “copy list” button from example lists.
+- Number of indexed pages in Search Console (baseline > 0).
+
+Each time new content is published, review the event plan in the analytics doc; if extra events are needed, note them here before adding.

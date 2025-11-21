@@ -1,10 +1,10 @@
 # PackedLink – CSS Implementation Notes
 
-Bu dosya geliştiriciye kısa yönlendirme sağlar; stilin tek kaynağı `docs/product/design-guide.md`.
+This file gives developers quick guidance; the single source for style is `docs/product/design-guide.md`.
 
-- Stil yaklaşımı: **yalnızca CSS Modules + semantik class isimleri**, utility yok, inline style yok.
-- **Design tokens zorunlu:** Renk/spacing/font-size/radius değerleri token'lardan alınır; komponentlerde hex/rgba/hsl yazma.
-- Token kaynağı: `src/frontend/app/globals.css`. Yeni değer gerekiyorsa önce design guide'a ekle.
-- Enforcement: stylelint kuralları + `./scripts/validate-design-tokens.sh` hardcode renkleri engeller.
+- Style approach: **CSS Modules only + semantic class names**; no utilities, no inline styles.
+- **Design tokens are mandatory:** Pull color/spacing/font-size/radius values from tokens; do not write hex/rgba/hsl in components.
+- Token source: `src/frontend/app/globals.css`. If a new value is needed, add it to the design guide first.
+- Enforcement: stylelint rules + `./scripts/validate-design-tokens.sh` prevent hardcoded colors.
 
-Detaylı örnek ve checklist için design guide içindeki “Implementation Kuralları” bölümünü kullan.
+Use the “Implementation Rules” section in the design guide for detailed examples and a checklist.

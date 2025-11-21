@@ -1,78 +1,78 @@
 # Analytics & Measurement Strategy
 
-PackedLink’te ölçüm, Zen’deki **ZEN-MEASURE-FIRST** kuralına dayanır: hisle değil veriyle karar veriyoruz fakat bunu solo kurucu gerçekliğine göre basit tutuyoruz. Bu doküman çekirdek akışın çalışıp çalışmadığını görmek için gereken minimum setup’ı anlatır.
+Measurement at PackedLink follows the **ZEN-MEASURE-FIRST** rule in Zen: we decide with data, not feelings, but keep it simple for the solo-founder reality. This document covers the minimum setup needed to see whether the core flow works.
 
 ---
 
-## 1. Neyi Ölçüyoruz? (Mekanizma)
+## 1. What Do We Measure? (Mechanism)
 
-Sürekli takip edilecek akışlar:
-1. **Aktivasyon:** Kaydolanların ilk public listesini oluşturma oranı
-2. **Kullanım derinliği:** Zaman aralığına göre kişi başı eklenen link sayısı
-3. **Paylaşım:** Liste paylaşma eylemi (copy link / sosyal buton)
-4. **Performans:** Mobil LCP ölçümü
+Flows tracked continuously:
+1. **Activation:** Rate of signups creating their first public list
+2. **Depth of use:** Links added per person over time
+3. **Sharing:** List sharing action (copy link / social button)
+4. **Performance:** Mobile LCP measurement
 
-Bu sinyaller çekirdek akışın çalışıp çalışmadığını gösterir; metrik eşik/hedefleri dönemsel kararlara göre ayrı belirlenir.
+These signals show whether the core flow works; metric thresholds/targets are set separately based on periodic decisions.
 
 ---
 
-## 2. Stack (Şimdi ve Yakın Gelecek)
+## 2. Stack (Now and Near Future)
 
-| Katman | Araç | Not |
+| Layer | Tool | Note |
 |--------|------|-----|
-| Olay takip | Supabase (Postgres) `product_events` tablosu | Auth server’ı üzerinden event yazılır |
-| Ürün analitiği | PostHog (cloud, 1M event free) | Funnel + retention dashboard |
-| Trafik/perf | Vercel Analytics + Web Vitals scripti | <3 sn yükleme hedefi için yeterli |
-| Hata izleme | Sentry (free tier) | Opsiyonel, sadece prod hataları için |
+| Event tracking | Supabase (Postgres) `product_events` table | Events written through the auth server |
+| Product analytics | PostHog (cloud, 1M events free) | Funnel + retention dashboard |
+| Traffic/perf | Vercel Analytics + Web Vitals script | Enough for <3s load goal |
+| Error tracking | Sentry (free tier) | Optional, production errors only |
 
-Self-host zorunlu değil; PostHog cloud başlar, ileride Supabase’e export edilir.
+Self-hosting not required; start with PostHog cloud, export to Supabase later.
 
 ---
 
-## 3. Event Şeması
+## 3. Event Schema
 
-| Event | Ne zaman? | Önemli Alanlar |
+| Event | When? | Important Fields |
 |-------|-----------|----------------|
-| `user_signed_up` | Kayıt tamamlandığında | `user_id`, `persona_guess`, `source` |
-| `list_created` | Bir liste kaydedildiğinde | `list_id`, `is_public`, `link_count` |
-| `link_added` | Link eklendiğinde | `list_id`, `has_metadata`, `entry_method` |
-| `list_shared` | Share butonu veya link kopyalandığında | `list_id`, `channel`, `link_count` |
-| `session_device` | Kullanıcı oturumu başladığında | `device`, `width`, `locale` |
+| `user_signed_up` | When signup completes | `user_id`, `persona_guess`, `source` |
+| `list_created` | When a list is saved | `list_id`, `is_public`, `link_count` |
+| `link_added` | When a link is added | `list_id`, `has_metadata`, `entry_method` |
+| `list_shared` | When share button is used or link is copied | `list_id`, `channel`, `link_count` |
+| `session_device` | When a user session starts | `device`, `width`, `locale` |
 
-Tüm event’ler önce Supabase’e yazılır, PostHog’a forward edilir. Böylece veri bizim veritabanımızda kalır.
+All events are written to Supabase first, then forwarded to PostHog. This keeps data in our database.
 
 ---
 
 ## 4. Dashboard & Ritual
 
-### Haftalık (kurucu check-in)
-- Signup → ilk public liste dönüşümü (trend takibi)
-- Kullanıcı başına ortalama link (trend takibi)
-- Paylaşım yapan kullanıcı oranı (trend takibi)
-- Mobilde LCP ortalaması (Web Vitals verisi varsa)
+### Weekly (founder check-in)
+- Signup → first public list conversion (trend)
+- Average links per user (trend)
+- Percentage of users who share (trend)
+- Mobile LCP average (if Web Vitals data exists)
 
-### Aylık
-- Aktif küratör sayısı (trend takibi)
-- Persona kaynağı kırılımları (hangi kanal/mesaj daha iyi çalışıyor?)
-- En çok paylaşılan 5 liste (öğrenim için)
+### Monthly
+- Active curator count (trend)
+- Persona source breakdowns (which channel/message works better?)
+- Top 5 most shared lists (for learnings)
 
-Dashboard PostHog’da tutulur, her Pazartesi kısa özet çıkar.
-
----
-
-## 5. Consent & Gizlilik
-
-- Email, ad gibi PII event’lere koyulmaz; sadece user_id kullanılır.
-- Kullanıcı export talep ederse Supabase’teki event’ler de dahil edilir.
-- Çerez banner’ı: Otomatik event’ler opsiyonel; kullanıcı reddederse sadece anonim performans ölçeriz.
+Dashboard lives in PostHog; write a short summary every Monday.
 
 ---
 
-## 6. Gelecek Fazlara Not
+## 5. Consent & Privacy
 
-Pro + örnek rehber içerikleri fazına geçildiğinde:
-- Tıklama kaynakları (affiliate) için ek event’ler
-- Landing / blog içerik performans ölçümleri
-- Cohort raporları için Metabase/PostHog export
+- Do not put PII like email/name into events; use user_id only.
+- If a user requests export, include events from Supabase.
+- Cookie banner: Automated events are optional; if declined, measure only anonymous performance.
 
-Eşik/hedefler dönemsel kararla belirlenir; doküman sadece mekanizmaları tarif eder.
+---
+
+## 6. Notes for Future Phases
+
+When moving into the Pro + example guide content phase:
+- Additional events for click sources (affiliate)
+- Performance measurement for landing/blog content
+- Metabase/PostHog export for cohort reports
+
+Thresholds/targets are set by periodic decision; this document only describes mechanisms.

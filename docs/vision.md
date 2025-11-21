@@ -1,274 +1,274 @@
-# PackedLink - Detaylı Proje Tanımı
+# PackedLink - Detailed Project Definition
 
-## 1. Ürün Kimliği
+## 1. Product Identity
 
-### Ne Yapıyoruz?
+### What Are We Building?
 
-**"Blogger.com for link lists" - Teknik bilgi gerektirmeden link listesi yapma ve paylaşma aracı.**
+**"Blogger.com for link lists" - A tool to create and share link lists without technical knowledge.**
 
-Nasıl Blogger zamanında HTML bilmeyenleri blog sahibi yaptıysa, PackedLink de teknik bilgisi olmayanları liste küratörü yapıyor.
+Just as Blogger enabled non-technical users to own blogs, PackedLink turns non-technical users into list curators.
 
-**Temel değer önerisi:**
-- Her liste bir konuya odaklanıyor
-- Liste sahibine hizmet ediyoruz (birincil müşteri)
-- Rehberler yaşayan doküman gibi çalışıyor
-- Zamanla link ekleniyor/çıkarılıyor
+**Core value proposition:**
+- Each list focuses on a single topic
+- We serve the list owner (primary customer)
+- Guides function like living documents
+- Links are added/removed over time
 
-### Ne Yapmıyoruz?
+### What Are We NOT Building?
 
-- ❌ **Genel bookmark yöneticisi değiliz**
-  - Tarayıcı yer imi alternatifi değiliz
-  - "Her gördüğün linki kaydet" hedefimiz yok
+- ❌ **We are not a general bookmark manager**
+  - Not a browser bookmark alternative
+  - No goal of "save every link you see"
 
-- ❌ **Kurumsal knowledge base değiliz**
-  - Slack/Notion alternatifi değiliz
-  - Roadmap'i kurumsal ihtiyaçlara göre çizmiyoruz
+- ❌ **We are not an enterprise knowledge base**
+  - Not a Slack/Notion alternative
+  - Roadmap is not driven by enterprise needs
 
-- ❌ **Sosyal ağ değiliz**
-  - Timeline, feed, arkadaş ekleme yok
-  - Yorum, DM, mesajlaşma yok
-  - Ürün "tekil rehber sayfaları" etrafında döner
+- ❌ **We are not a social network**
+  - No timeline, feed, or friend requests
+  - No comments, DMs, or messaging
+  - The product revolves around individual guide pages
 
-## 2. Hedef Kitle
+## 2. Target Audience
 
-Persona detaylarının tek kaynağı `docs/product/personas.md`’dir. Vision dokümanında tekrar etmeyiz; persona stratejisi için o dosyaya referans ver.
+The single source for persona details is `docs/product/personas.md`. Do not repeat here; reference that file for persona strategy.
 
-## 3. Örnek Rehber Stratejisi
+## 3. Example Guide Strategy
 
-### SEO Yaklaşımı
-- **SEO ana yakıt değil**; örnek rehber yazıları topluluk için referans niteliğinde.
-- Liste sayfaları insanlar için; arama trafiği için ayrı rehber içerikleri üretiriz.
-- Ana sayfada sadece birkaç seçilmiş listemiz görünür.
+### SEO Approach
+- **SEO is not the primary fuel**; example guide posts are references for the community.
+- List pages are for people; we produce separate guide content for search traffic.
+- Only a few selected lists appear on the home page.
 
-### Kategori Sistemi
-- **İçeride:** Tag-based sistem (liste sahibinin kontrolü).
-- **Dışarıda:** Ana sayfada seçili vitrin listeleri + blog yazıları.
-- Temalar ileride gerekirse tag'lerden türetilir; zorunlu alan yok.
+### Category System
+- **Internally:** Tag-based system (controlled by the list owner).
+- **Externally:** Selected showcase lists + blog posts on the home page.
+- Themes can later be derived from tags if needed; no required fields.
 
-## 4. Monetizasyon Stratejisi
+## 4. Monetization Strategy
 
-### Ne Yapmıyoruz?
+### What We Are NOT Doing
 
-- ❌ **Ziyaretçiden para istemiyoruz** (Medium tarzı paywall yok)
-- ❌ **Network reklam satmıyoruz** (alakasız reklamlar yok)
-- ❌ **NSFW paywall işine girmiyoruz**
-- ❌ **Creator komisyonu almıyoruz** (ilk fazda)
-- ❌ **Bait-and-switch yapmıyoruz**
+- ❌ **We do not charge visitors** (no Medium-style paywall)
+- ❌ **We do not sell network ads** (no irrelevant ads)
+- ❌ **We do not do NSFW paywalls**
+- ❌ **We do not take creator commission** (in the first phase)
+- ❌ **We do not do bait-and-switch**
 
-### Ne Yapıyoruz?
+### What We Are Doing
 
-#### 1. Pro Özellikler (Araç olarak)
-- Daha fazla liste/link limiti
-- Basit tıklama istatistikleri
-- Domain bazlı otomatik affiliate parametre
-- Küçük branding kontrolleri
+#### 1. Pro Features (as a tool)
+- Higher list/link limits
+- Simple click stats
+- Automatic affiliate parameters by domain
+- Small branding controls
 
-#### 2. Sponsorlu Vitrin
-- "Bizim seçtiklerimiz" alanı
-- Editör seçimleri (ücretsiz)
-- Sponsorlu rehberler (başvuru + onay + ücret)
-- Net "Sponsorlu" etiketi ile şeffaflık
+#### 2. Sponsored Showcase
+- "Our Picks" section
+- Editor’s picks (free)
+- Sponsored guides (application + approval + fee)
+- Clear "Sponsored" label for transparency
 
-### Fiyatlandırma Prensipleri
-- Ücretli özellikler **en baştan** paralı olarak işaretlenir
-- Ya zaman kazandırır ya para kazandığı işi kolaylaştırır
-- Ego özellikleri (tema, rozet) tek başına satış kalbi değil
+### Pricing Principles
+- Paid features are marked as paid **from day one**
+- Either save time or make money easier
+- Ego features (theme, badge) are not the core sales driver alone
 
-## 5. Teknik Prensipler
+## 5. Technical Principles
 
-### Veri Sahipliği
-- **Verinin sahibi kullanıcıdır**
-- Export hakkı (JSON, Markdown)
-- Kullanıcıyı kilitlemeyiz
-- Migration desteği
+### Data Ownership
+- **Data belongs to the user**
+- Export rights (JSON, Markdown)
+- No lock-in
+- Migration support
 
-### Performans
-- **Hızlı olmalı**
-- Link ekleme sürtünmesiz
-- Mobil-first yaklaşım
+### Performance
+- **Must be fast**
+- Frictionless link entry
+- Mobile-first approach
 
-### Güvenilirlik
-- Yasa dışı içerik yok
-- Yetişkin içerik gri alan (vitrine taşımayız)
-- Kullanıcı itibarını koruruz
-- SEO spam yapmayız
+### Reliability
+- No illegal content
+- Adult content is a gray area (we don’t showcase it)
+- We protect user reputation
+- No SEO spam
 
-## 6. Büyüme Stratejisi
+## 6. Growth Strategy
 
-### Distribution Kanalları
-1. **İçerik üreticiler üzerinden** (bio link alternatifi)
-2. **Sosyal paylaşım** (Twitter, LinkedIn)
-3. **Örnek rehber içerikleri / SEO** (ayrı content layer ile, ana ürüne bağımlı değil)
+### Distribution Channels
+1. **Through content creators** (bio link alternative)
+2. **Social sharing** (Twitter, LinkedIn)
+3. **Example guide content / SEO** (with a separate content layer, not dependent on the core product)
 
-### Viral Mekanizma
-- Liste sonunda "Siz de listenizi yapın"
-- "Made with PackedLink" watermark (zarif)
-- Kolay paylaşım için hazır metinler
-- Liste kopyalama özelliği
+### Viral Mechanism
+- "Make your own list" prompt at the end of lists
+- "Made with PackedLink" watermark (subtle)
+- Ready-to-use copy for easy sharing
+- List copy feature
 
-## 7. Başarı Metrikleri
+## 7. Success Metrics
 
-### MVP Validation (İlk 3 ay)
-- 100+ organik kullanıcı
-- 50+ public liste
-- Liste başına ortalama 10+ link
+### MVP Validation (First 3 months)
+- 100+ organic users
+- 50+ public lists
+- 10+ links per list on average
 
-### Growth Metrics (6-12 ay)
-- %10+ kullanıcı retention
-- Haftalık 5+ yeni public liste
-- İlk 10 Pro/Sponsor müşteri
+### Growth Metrics (6-12 months)
+- 10%+ user retention
+- 5+ new public lists weekly
+- First 10 Pro/Sponsor customers
 
 ### Long-term Success
-- 1000+ aktif liste sahibi
-- 10K+ public liste
-- Sürdürülebilir Pro/Sponsor geliri
+- 1000+ active list owners
+- 10K+ public lists
+- Sustainable Pro/Sponsor revenue
 
-## 8. Problem Validasyonu ve Kanıtlar
+## 8. Problem Validation and Evidence
 
-### Gerçek Gözlemlenen Problemler
+### Real Observed Problems
 
-#### Instagram Story Highlight Problemi
-- **Gözlem:** İçerik üreticiler story highlight'larda link paylaşıyor
-- **Problem:** Ziyaretçiler swipe ederek link arıyor, terrible UX
-- **Kanıt:** Gerçek kullanıcı şikayetleri, "linkler bio'da" trendi
+#### Instagram Story Highlight Problem
+- **Observation:** Content creators share links in story highlights
+- **Problem:** Visitors swipe to find links—terrible UX
+- **Evidence:** Real user complaints, "links in bio" trend
 
-#### WhatsApp Link Kaybı
-- **Gözlem:** Öğretmenler, HR'cılar WhatsApp'ta link paylaşıyor
-- **Problem:** Konuşmalar arasında kaybolur, sürekli "tekrar atar mısınız?"
-- **Kanıt:** Veli gruplarında gözlemlendi, şirket onboarding'lerinde yaşanıyor
+#### WhatsApp Link Loss
+- **Observation:** Teachers and HR share links on WhatsApp
+- **Problem:** Links get lost in chats; constant "can you resend?"
+- **Evidence:** Seen in parent groups and company onboardings
 
-#### Portfolio Dağınıklığı
-- **Gözlem:** Content creator'lar (Selim örneği) işlerini gösteremiyor
-- **Problem:** Platform'lar arası portfolio yok, her iş farklı yerde
-- **Kanıt:** BBC YouTube'da kayıp belgeseller, teker teker arama gerekiyor
+#### Portfolio Fragmentation
+- **Observation:** Content creators (e.g., Selim) can’t showcase their work
+- **Problem:** No cross-platform portfolio; each work lives elsewhere
+- **Evidence:** Missing BBC documentaries on YouTube, must search one by one
 
 #### Confluence/Wiki Login Barrier
-- **Gözlem:** Şirketler onboarding linkleri Wiki'de tutuyor
-- **Problem:** Yeni çalışan önce mail almalı, sonra login, sonra doğru sayfayı bul
-- **Kanıt:** Her şirkette yaşanan standart problem
+- **Observation:** Companies keep onboarding links in wikis
+- **Problem:** New hires must get an email, then log in, then find the right page
+- **Evidence:** A standard problem in every company
 
-### Mevcut Alternatiflerin Eksiklikleri
+### Gaps in Current Alternatives
 
 **Linktree/Bio.link:**
-- Sadece tek sayfa link listesi
-- Kategorize edilemiyor
-- Not eklenemiyor
-- Birden fazla liste yapılamıyor
+- Only a single-page link list
+- Cannot categorize
+- Cannot add notes
+- Cannot create multiple lists
 
 **Notion Public Pages:**
-- Teknik bilgi gerekiyor
-- URL'ler karmaşık
-- Mobilde yavaş
-- SEO friendly değil
+- Requires technical knowledge
+- URLs are messy
+- Slow on mobile
+- Not SEO-friendly
 
 **GitHub Awesome Lists:**
 - Developer only
-- Git/Markdown bilgisi gerekli
-- Non-tech kullanıcı yapamaz
+- Requires Git/Markdown knowledge
+- Non-technical users can’t do it
 
 **Twitter Threads:**
-- Edit edilemiyor
-- Kategorize edilemiyor
-- Eski thread'ler kaybolur
-- Link preview kontrolü yok
+- Not editable
+- Cannot categorize
+- Old threads get lost
+- No control over link previews
 
-### Liste Yapma Davranışının Varlığı
+### Existence of List-Making Behavior
 
-İnsanlar zaten liste yapıyor, sadece düzgün araçları yok:
+People already make lists; they just lack proper tools:
 
-1. **Teknik kullanıcılar:** Personal website'lerinde (verdiğim 8 örnek)
-2. **Non-tech kullanıcılar:** WhatsApp, Instagram, Twitter'da
-3. **Profesyoneller:** Confluence, Notion, Google Docs'ta
-4. **Öğretmenler:** WhatsApp gruplarında
-5. **HR:** Email template'lerinde
+1. **Technical users:** On personal websites (8 examples given)
+2. **Non-technical users:** On WhatsApp, Instagram, Twitter
+3. **Professionals:** In Confluence, Notion, Google Docs
+4. **Teachers:** In WhatsApp groups
+5. **HR:** In email templates
 
-Davranış var, araç eksik. PackedLink bu boşluğu dolduruyor.
+The behavior exists; the tool is missing. PackedLink fills this gap.
 
 ---
 
-## 9. Ürün Çekirdeği (Güncel Çerçeve)
+## 9. Product Core (Current Frame)
 
-- Tek bir konuya ait seçme linkleri rehber listeye çevir.
-- Aynı link üzerinden herkese paylaş, liste güncellense bile URL değişmesin.
-- Ana problem cümlesi: **“Biri bana aynı soruyu tekrar sorduğunda link aramakla vakit kaybetmeyeyim.”**
-- PackedLink ne Linktree gibi bio-link aracı ne de klasik bookmark yöneticisi; mikro kürasyon + paylaşılabilir rehber kombinasyonu.
+- Turn curated links on a single topic into a guide list.
+- Share with everyone via one link; URL doesn’t change even if the list is updated.
+- Core problem statement: **“When someone asks me the same question again, I shouldn’t waste time searching for links.”**
+- PackedLink is neither a bio-link tool like Linktree nor a classic bookmark manager; it combines micro-curation with shareable guides.
 
-## 10. Neden Fırsat?
+## 10. Why Is This an Opportunity?
 
-- İhtiyaç kanıtlı fakat oyuncular küçük ve persona odakları zayıf.
-- Globalde marketing yapmayan, yavaş ürünler var; kategori lideri yok.
-- Teknik bariyer düşük → hızlı MVP ve iterasyon imkânı.
-- 3K$ MRR hedefi niş ürün için erişilebilir (150×$20 veya 300×$10 gibi küçük kullanıcı tabanları yeterli).
-- Türkiye pazarı neredeyse boş; lokal ödeme ve dil avantajı yaratır.
+- The need is validated but players are small with weak persona focus.
+- Global players are slow and don’t market; no category leader exists.
+- Low technical barrier → fast MVP and iteration possible.
+- $3K MRR target is reachable for a niche product (small user bases like 150×$20 or 300×$10 are enough).
+- Turkish market is almost empty; local payment and language provide an edge.
 
-## 11. Doğrudan Rakip Özetleri
+## 11. Direct Competitor Summaries
 
-| Ürün | Durum | Notlar | Zayıflık |
+| Product | Status | Notes | Weakness |
 |------|-------|--------|----------|
-| **LinksList.app** | 2019 çıkış, Product Hunt #1, open source, 30K liste | Tek founder (Luke Denton) | Persona ve marketing yok, analytics zayıf |
-| **Weblinkslist.online** | Çok basit freemium | İşlevi dar | Tasarım/UX düşük güven |
-| **Tabler.one** | Sekme yöneticisi, “tek linkte çok link” özelliği | Dolaylı kesişim | Ana fokus başka |
-| **Hero (herospace.app)** | Çoklu liste + tek profil, ücretsiz | Sosyal koleksiyon yönü | Monetizasyon yok, feature derinliği az |
-| **Share.link / Salyangoz / Listly / MergeURL** | Niş mikro araçlar | Bazılarının topluluğu var | Traksiyon ve ürün kalitesi sınırlı |
+| **LinksList.app** | Launched 2019, Product Hunt #1, open source, 30K lists | Single founder (Luke Denton) | No persona/marketing, weak analytics |
+| **Weblinkslist.online** | Very simple freemium | Narrow function set | Low-trust design/UX |
+| **Tabler.one** | Tab manager with a “many links in one” feature | Browser integrations | Core focus elsewhere |
+| **Hero (herospace.app)** | Multiple lists + single profile, free | Social collection vibe | No monetization, shallow features |
+| **Share.link / Salyangoz / Listly / MergeURL** | Niche micro tools | Some have communities | Limited traction and product quality |
 
-Hiçbiri persona bazlı konumlanmıyor; kategori hakimiyeti yok.
+None position around personas; there is no category dominance.
 
-## 12. Pazar Davranışı İçgörüsü
+## 12. Market Behavior Insight
 
-Kullanıcılar hazır çözümler yerine görünmez yöntemlere kaçıyor:
+Users resort to invisible methods instead of ready-made solutions:
 
-- WhatsApp notları, DM üzerinden aynı linkleri atmak
-- Notes / Google Docs listeleri
-- Story highlight veya Twitter thread’leri
+- WhatsApp notes, sending the same links via DMs
+- Notes / Google Docs lists
+- Story highlights or Twitter threads
 
-Kategori farkındalığı yok; bu, “terimi tanımlayan” marka olma fırsatı demek.
+There is no category awareness; this is an opportunity to be the brand that defines the term.
 
-## 13. Persona Seti (Öncelikli)
+## 13. Persona Set (Priority)
 
-1. **Affiliate İçerikçi – “Elif”**
-   - Instagram/TikTok’ta ürün tavsiye ediyor; her gün aynı sorularla boğuşuyor.
-   - DM/Notes karmaşasında affiliate linkleri yönetemiyor, tıklamaları ölçemiyor.
-   - PackedLink: temalı listeler (“Bebek Seti”, “Stüdyo Ekipmanı”), tek link, güncellenebilir rehber, Pro’da basic analytics.
+1. **Affiliate Creator – “Elif”**
+   - Recommends products on Instagram/TikTok; faces the same questions daily.
+   - Cannot manage affiliate links or measure clicks amid DM/Notes chaos.
+   - PackedLink: themed lists ("Baby Kit", "Studio Gear"), single link, updatable guide, basic analytics on Pro.
 
-2. **Mekân Küratörü – “Ali”**
-   - Arkadaşlarına sürekli restoran/bar öneren kişi.
-   - WhatsApp’ta kaybolan mesajlar, Google Maps karmaşası.
-   - PackedLink: “Kadıköy Kahve”, “Beyoğlu Bar” gibi listeler; tek linki her gruba atar, herkes güncel bilgiyi görür.
+2. **Venue Curator – “Ali”**
+   - The person who constantly recommends restaurants/bars to friends.
+   - Messages get lost on WhatsApp; Google Maps is messy.
+   - PackedLink: lists like "Kadıköy Coffee", "Beyoğlu Bars"; sends one link to every group so everyone sees the latest info.
 
-3. **Kaynak Küratörü (Öğretmen, developer, eğitmen, danışman)**
-   - Öğrenciye/ekibe kaynak listesi paylaşmak istiyor.
-   - Ödeme gücü düşük ama topluluğu büyütür; ürün tabanını genişletir.
+3. **Resource Curator (Teacher, developer, trainer, consultant)**
+   - Wants to share resource lists with students/teams.
+   - Lower willingness to pay but grows the community; expands the product base.
 
-> **Gelir odaklı persona = Elif.**  
-> **Kitle genişleticiler = Ali + Kaynak Küratörü.**
+> **Revenue-focused persona = Elif.**  
+> **Audience expanders = Ali + Resource Curator.**
 
-## 14. Konumlandırma ve Mesajlaşma
+## 14. Positioning and Messaging
 
-- **Hero mesaj:** “Link listeleri yap. Herkese tek link ver.”
-- **Affiliate alt mesajı:** “Affiliate linklerin için küçük bir directory hazırla; tıklamaları gör, DM kaosundan kurtul.”
-- Yardımcı anlatılar: “Aynı soruya ikinci kez cevap verme”, “WhatsApp karmaşasından çık”, “Liste hep güncel”.
-- Fark noktaları:
-  - Persona odaklı ürün ve marketing
+- **Hero message:** “Create link lists. Give everyone a single link.”
+- **Affiliate sub-message:** “Build a mini directory for your affiliate links; see clicks, escape DM chaos.”
+- Supporting narratives: “Don’t answer the same question twice”, “Escape WhatsApp chaos”, “The list always stays up to date.”
+- Differentiators:
+  - Persona-driven product and marketing
   - Modern minimal UX
-  - Affiliate için analytics/parametre koruma yol haritası
-  - Türkiye + global arasında çift yönlü avantaj
+  - Analytics/parameter protection roadmap for affiliate use cases
+  - Dual advantage between Turkey + global markets
 
-## 15. MRR Potansiyeli
+## 15. MRR Potential
 
-- 3K$/ay’a ulaşmak için küçük kullanıcı tabanı yeter:  
-  - 150 kullanıcı × $20  
-  - 300 kullanıcı × $10  
-  - 1000 kullanıcı × $3
-- Rakipler bile marketing yapmadan gelir üretebiliyor; doğru konumlandırma ile monetizasyon erkenden başlar.
+- A small user base is enough to reach $3K/month:  
+  - 150 users × $20  
+  - 300 users × $10  
+  - 1000 users × $3
+- Even competitors can generate revenue without marketing; with the right positioning, monetization starts early.
 
-## 16. Ana Risk ve Yaklaşım
+## 16. Main Risk and Approach
 
-- Yapmak kolay, **kimsenin kullanmaması** asıl risk.
-- Çözüm: gerçek Elif/Ali kullanıcılarıyla pilot, ölçülebilir iterasyon, Zen’deki `ZEN-MEASURE-FIRST` kuralını takip etmek.
+- It’s easy to build; the real risk is **nobody using it**.
+- Solution: Pilot with real Elif/Ali users, measurable iteration, follow the `ZEN-MEASURE-FIRST` rule in Zen.
 
-## 17. Genel Sonuç
+## 17. Overall Outcome
 
-- Pazar küçük ama sağlıklı, kategori lideri boş.
-- Rakipler zayıf ve persona bakış açısı eksik.
-- Net persona + sade roadmap = kategori liderliği şansı.
-- 3K MRR hedefi ulaşılabilir; proje hem gurur verici hem sürdürülebilir indie SaaS olabilir.
+- Market is small but healthy; the category leader spot is open.
+- Competitors are weak and lack a persona perspective.
+- Clear personas + simple roadmap = shot at category leadership.
+- $3K MRR goal is achievable; the project can be a proud, sustainable indie SaaS.

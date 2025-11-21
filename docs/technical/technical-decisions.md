@@ -1,262 +1,124 @@
-# Technical Decisions - PackedLink
+# Technical Decisions
 
-Bu doküman, PackedLink'in teknik kararlarını ve arkasındaki mantığı içerir.
+This document contains strategic technical decisions and their rationale. For current tech stack, see `tech-stack.md`.
 
-## Karar Alma Çerçevesi
+---
 
-Bu bölüm, kaydet.link projesi içindeki önemli teknik kararların teklif edilme, tartışılma ve nihai hale getirilme sürecini özetlemektedir. Amaç, şeffaflığı sağlamak, farklı bakış açılarını toplamak ve projenin vizyonu ve ilkeleriyle (bkz. `docs/zen.md`) uyumlu, sağlam kararlar almaktır.
+## URL Schema
 
-### Teknik Karar Talebi (TKT) Süreci
+### Structure
 
-Yeni bir teknoloji benimsenmesi, önemli bir mimari değişiklik veya birden fazla bileşeni/ekibi etkileyen bir karar için bir TKT başlatılmalıdır.
+All lists use `shortuuid`-based unpredictable short IDs:
+- Base: `packedlink.com/l/{hash_id}`
+- With optional slug: `packedlink.com/l/{hash_id}/{optional_slug}`
 
-1.  **Başlatma:** Teklif sahibi, aşağıdaki şablonu kullanarak bir TKT belgesi taslağı oluşturur.
-2.  **İnceleme ve Tartışma:** TKT, ilgili paydaşlarla (örn. çekirdek geliştirme ekibi, ürün sahipleri) inceleme ve tartışma için paylaşılır. Bu, eşzamansız (belgeye yapılan yorumlar) veya eşzamanlı (özel bir toplantı) olarak gerçekleşebilir.
-3.  **İyileştirme:** Geri bildirimlere dayanarak, teklif sahibi TKT'yi iyileştirir.
-4.  **Sonuçlandırma:** Bir fikir birliğine varıldığında veya belirlenen yetkili tarafından bir karar alındığında, TKT nihai hale getirilir ve bu `technical-decisions.md` belgesine dahil edilir veya buradan referans verilir. Karar, gerekçesi ve değerlendirilen alternatifler belgelenir.
+### Resolution Logic
 
-### TKT Şablonu
+**Backend only looks at hash_id:**
+- `7f4d2a9b` = list ID
+- Slug is purely decorative
+- `/l/7f4d2a9b` and `/l/7f4d2a9b/istanbul-restoranlar` show same list
 
-```markdown
-### TKT-YYYYAAXX-KISA-BAŞLIK
+**Slug access rules:**
+- Free user + slug present → 404
+- Pro user + slug present → Show list
+- Pro users can change slug (old slugs still work)
 
-*   **Durum:** [Önerildi | Onaylandı | Reddedildi | TKT-XXXX Tarafından Geçersiz Kılındı]
-*   **Teklif Sahibi:** [Adınız/Ekibiniz/AI Ajanı Tanımlayıcısı]
-*   **Tarih:** YYYY-AA-GG
-*   **Problem Bildirimi:**
-    *   Çözmeye çalıştığımız belirli sorun nedir?
-    *   Mevcut sınırlamalar veya zorluklar nelerdir?
-*   **Önerilen Çözüm:**
-    *   Önerilen teknik kararı ayrıntılı olarak açıklayın.
-    *   Sorun bildirimini nasıl ele alıyor?
-    *   İlgili anahtar bileşenler, teknolojiler veya yaklaşımlar nelerdir?
-*   **Değerlendirilen Alternatifler:**
-    *   İncelenen diğer seçenekleri kısaca açıklayın.
-    *   Neden seçilmediler (örn. karmaşıklık, maliyet, performans, sürdürülebilirlik)?
-*   **Artıları ve Eksileri:**
-    *   **Artıları:** Önerilen çözümün faydalarını listeleyin.
-    *   **Eksileri:** Dezavantajları, riskleri veya potansiyel zorlukları listeleyin.
-*   **Etki:**
-    *   Uygulama için tahmini çaba nedir?
-    *   Mevcut sistemler, performans, güvenlik ve geliştirici deneyimi üzerindeki etkileri nelerdir?
-    *   Gelecekteki geliştirme veya ölçeklenebilirlik için herhangi bir çıkarım var mı?
-*   **Bağımlılıklar:**
-    *   Gerekli başka kararlar veya ön koşullar var mı?
-*   **Açık Sorular/Tartışma Noktaları:**
-    *   Çözülmemiş sorunlar veya daha fazla tartışma gerektiren noktalar.
-```
+### Examples
 
-## URL Schemas
-
-### Temel URL Yapısı
-
-Tüm listeler `shortuuid` tabanlı, tahmin edilemez kısa ID kullanır: `packedlink.com/l/{hash_id}` ve opsiyonel slug'lı `packedlink.com/l/{hash_id}/{optional_slug}`.
-
-### URL Çözümleme Mantığı
-
-1. **Backend sadece hash_id'ye bakar**
-   - `7f4d2a9b` = liste ID'si
-   - Slug kısmı tamamen dekoratif
-   - `/l/7f4d2a9b` ve `/l/7f4d2a9b/istanbul-restoranlar` aynı listeyi gösterir
-
-2. **Slug kontrolü**
-   - Free kullanıcı + slug varsa → 404
-   - Pro kullanıcı + slug varsa → Liste göster
-   - Pro kullanıcı slug'ı değiştirebilir (eski slug'lar da çalışır)
-
-### Örnekler
-
-**Free Kullanıcı:**
+**Free User:**
 - ✅ `packedlink.com/l/h7s9kd2m3p5q`
-- ❌ `packedlink.com/l/h7s9kd2m3p5q/istanbul-restoranlar` (slug isteğe bağlı olmadığı için 404)
+- ❌ `packedlink.com/l/h7s9kd2m3p5q/istanbul-restoranlar` (404)
 
-**Pro Kullanıcı:**
+**Pro User:**
 - ✅ `packedlink.com/l/h7s9kd2m3p5q`
 - ✅ `packedlink.com/l/h7s9kd2m3p5q/istanbul-restoranlar`
-- ✅ `packedlink.com/l/h7s9kd2m3p5q/best-restaurants-istanbul` (slug değiştirildiğinde)
+- ✅ `packedlink.com/l/h7s9kd2m3p5q/best-restaurants` (after slug change)
 
-### Neden Bu Model?
+### Rationale
 
-1. **Güvenlik:** shortuuid ID tahmin edilemez (unlisted listeler için kritik)
-2. **SEO:** Pro kullanıcılar URL'e keyword ekleyebilir
-3. **Tutarlılık:** URL hiç değişmez (public↔unlisted geçişlerde)
-4. **Backward compatibility:** Slug değişse bile eski linkler çalışır
-5. **Monetizasyon:** Clear Pro value proposition
+1. **Security:** shortuuid is unpredictable (critical for unlisted)
+2. **SEO:** Pro users can add keywords to URL
+3. **Consistency:** URL never changes (public↔unlisted transitions)
+4. **Backward compatibility:** Old slugs keep working
+5. **Monetization:** Clear Pro value proposition
 
-### Liste Visibility Seviyeleri
+---
 
-- **Public:** Paylaşılabilir, Google'a indexlenebilir
-- **Unlisted:** Sadece link bilenler görür, indexlenmez
-- ~~Private~~ Yok (bookmark manager olmamak için)
+## List Visibility
 
-### Language & Localization
+- **Public:** Shareable, Google-indexable
+- **Unlisted:** Only those with link can see, not indexed
+- ~~Private~~ No (we're not a bookmark manager)
 
-**Liste seviyesinde dil:**
-- Discover/directory fazı kaldırıldı; listelerde dil seçimi yok.
-- Dil metadatası ihtiyaç olduğunda geri eklenir.
-- Arayüz dil tercihleri kullanıcı profilinden ayrıdır, fakat bu özellik ileriki fazlara bırakıldı.
+---
 
-**UI Localization:**
-- Şimdilik tek dil (TR/EN mix) yeterli; Discover planı yok.
-- Gelecekte user preference + browser detection düşünülür.
-- URL structure: Dil prefix yok (SEO karmaşası yaratmamak için).
+## Language & Localization
 
-**Global-first tasarım:**
-- UTC timezone (local conversion UI'da)
+### Current Phase
+
+- **UI:** Single language (to be decided in Issue #12)
+- **List-level language:** No language selection (Discover phase removed)
+- **URL structure:** No language prefix (avoid SEO complexity)
+
+### Global-First Design
+
+- UTC timezone (local conversion in UI)
 - International date formats
-- Multi-currency ready (Pro features için)
+- Multi-currency ready (for Pro features)
 - RTL support consideration (Arabic, Hebrew)
 
-### Draft Durumu
+---
 
-- `is_draft = true` olduğunda liste sadece sahibi tarafından görülür.
-- `is_draft = false` olduktan sonra visibility (public/unlisted) ayarı devreye girer.
-- Opsiyonel `custom_slug` yalnızca Pro kullanıcılarına açıktır.
+## Security
+
+### Unlisted List Security
+
+1. **Hash ID:** 12-character shortuuid (e.g., `h7s9kd2m3p5q`)
+2. **Brute force protection:** Rate limiting
+3. **No directory listing:** No random discovery
+4. **No user enumeration:** Can't guess lists from username
+
+### Authentication
+
+- **Current:** Email + Password
+- **Future consideration:** Magic link
+- **Long-term:** Social login
 
 ---
 
-## Database Schema (Planned)
+## GDPR Basics (MVP Level)
 
-### Core Tables
+### Required
 
-- **Users:** `id`, `email`, `username` (benzersiz), `is_pro`, `created_at`
-- **Lists:** `id`, kısa `hash_id`, `user_id`, `title`, `description`, `visibility` (public/unlisted), `is_draft`, opsiyonel `custom_slug`, `theme`, zaman damgaları
-- **Links:** `id`, `list_id`, `url`, `title`, `description`, `position`, zaman damgası; tag ve metadata alanları ayrı ilişki tablosuyla tutulur
+1. **Privacy Policy** - What data we collect and why
+2. **Cookie Banner** - Inform even for essential cookies
+3. **Data Export** - Users can download their data (per ZEN-DATA-FREEDOM)
+4. **Account Deletion** - Delete account = delete all data
+5. **Email Consent** - Explicit opt-in for marketing
 
-### Indexes
+### NOT in MVP
 
-- `lists.hash_id` - Primary lookup
-- `lists.user_id` - User's lists
-- `lists.visibility + lists.is_draft` - Basit listelemeler
-- `lists.theme` - Filtering
-- `links.list_id + links.position` - Ordered links
-
-> **Not:** Uygulama şu an SQLite 3 üzerinde çalışır; PostgreSQL/Supabase geçişi Pro gereksinimleri ortaya çıktığında değerlendirilir.
-
----
-
-## Tech Stack Decisions
-
-> **Mobil gelecek gardı:** Backend’te alınan her kararın uzun vadede iOS/Android istemcileri besleyeceği varsayımıyla hareket ediyoruz. Django + Django Ninja seçimi, REST API’lerin clean şekilde büyümesini ve future mobile client’ların minimum yeniden yazımla bu API’leri tüketmesini sağlamak üzere yapıldı.
-
-### Frontend
-- **Next.js 14+** (App Router)
-- **TypeScript** (type safety)
-- **CSS Modules + design tokens** (utility yok, semantik class'lar)
-- **React Query** (data fetching)
-- **Zustand** (gerekirse hafif client-side state management)
-
-Zustand sadece client tarafında komponentler arası UI state paylaşımı gerektiğinde devreye girer (ör. wizard adımları, filtre panelleri). Server Actions + React Query yeterli olduğu sürece ekstra state katmanı eklenmez.
-
-### Backend
-- **Django** (core framework)
-- **Django Ninja** (REST API layer)
-- **SQLite 3** (erken kullanım veri tabanı)
-- **uv + pyproject.toml** (paket yönetimi, `requirements.txt` yok)
-- **Django Admin** (operasyonel yönetim paneli)
-
-### Infrastructure
-- **Vercel** (frontend hosting)
-- **Cloudflare** (CDN + DDoS protection)
-- **Docker** sadece prod gerekirse; yerel geliştirme Docker'sız yürütülür
-
-### Neden Bu Stack?
-
-1. **Hız:** Hızlı development, hızlı deployment
-2. **Django DX:** ORM, migration, admin panel, middleware avantajları
-3. **Basit dev ortamı:** SQLite + uv → Docker kurulumu gerekmez
-4. **Frontend özgürlüğü:** Next.js tarafı bağımsız gelişebilir
-5. **Geleceğe hazırlık:** Prod için Docker eklenebilir ama günlük geliştirmede gerekmiyor
-
----
-
-## Performance Decisions
-
-### Link Ekleme Optimizasyonu
-
-1. **URL metadata fetching:** Background job
-2. **Optimistic UI:** Hemen göster, sonra validate
-3. **Batch operations:** Birden fazla link paste edilebilir
-
-### Liste Görüntüleme
-
-1. **Static generation:** Public listeler ISR
-2. **Edge caching:** Cloudflare CDN
-3. **Lazy loading:** İlk 20 link, sonra scroll'da yükle
-
----
-
-## Security & Compliance
-
-### GDPR Basics (MVP Level)
-
-**Gerekli olanlar:**
-1. **Privacy Policy** - Ne data topluyoruz, neden
-2. **Cookie Banner** - Sadece essential cookies için bile bilgilendirme
-3. **Data Export** - User kendi verisini indirebilmeli (zaten ZEN'de var)
-4. **Account Deletion** - Hesap silme = tüm data silme
-5. **Email Consent** - Marketing email'leri için explicit opt-in
-
-**MVP'de yapmayacağımız:**
 - Cookie consent management platform
 - Detailed audit logs
 - Data Processing Agreements
 - Automated GDPR request handling
 
-**Basit implementation:** Minimal bir cookie banner, localStorage üzerinden kullanıcıdan onay alıp tekrar göstermeyecek kadar hafif tutulur.
+### Implementation
 
-## Security Decisions
-
-### Unlisted Liste Güvenliği
-
-1. **Hash ID:** 12 karakterlik shortuuid (ör. `packedlink.com/l/h7s9kd2m3p5q`)
-2. **Brute force protection:** Rate limiting
-3. **No directory listing:** Rastgele vitrin yok
-4. **No user enumeration:** Username'den liste tahmin edilemez
-
-### Authentication
-
-1. **Email + Password** (temel akış)
-2. **Magic link option** (ileride değerlendirilir)
-3. **Social login** (uzun vadeli ihtiyaç)
+Minimal cookie banner using localStorage, simple and non-intrusive.
 
 ---
 
-## Monitoring & Analytics
+## Draft State
 
-### MVP Analytics (Backend only)
-
-1. **Liste görüntülenme:** Simple counter
-2. **Link tıklanma:** Redirect ile track
-3. **User activity:** Last login, lists created
-4. **Event forwarder:** `ListEvent.log` PostHog SDK'sına opsiyonel olarak event yollar (env ile aç/kapa)
-
-> Event isimleri ve ölçüm öncelikleri için `docs/marketing/analytics-strategy.md` canonical kaynaktır; backend event’leri bu listeyle uyumlu tutulur.
-
-### Pro Analytics (ileride)
-
-1. **Detailed stats:** Daily/weekly views
-2. **Link performance:** Click-through rate
-3. **Referrer tracking:** Nereden geliyorlar
+- `is_draft = true` → Only owner can see
+- `is_draft = false` → Visibility (public/unlisted) applies
+- Optional `custom_slug` only for Pro users
 
 ---
 
-## Future Considerations
-
-### API Design
-
-- `GET /api/lists/{hash_id}/` → public veya unlisted listeyi döner
-- `GET /api/users/{username}/` → kullanıcı profili + tüm public listeleri
-- `POST /api/lists/` → yeni liste oluşturur (auth gerekli)
-- `PUT /api/lists/{hash_id}/` → sahibin listeyi güncellemesi
-- `POST /api/lists/{hash_id}/links/` → belirli listeye link ekler
-
-### Browser Extension (Gelecek Planı)
-
-- Quick save to list
-- Right-click context menu
-- Toolbar button
-
----
-
-Last Updated: 2024-11-18
+**See also:**
+- Tech Stack: `tech-stack.md`
+- Analytics Strategy: `docs/marketing/analytics-strategy.md`
+- Design Guidelines: `docs/product/design-guide.md`

@@ -1,63 +1,64 @@
-# AI Ajanı Katkı Rehberi
+# AI Agent Contribution Guide
 
-Bu rehber, kaydet.link projesine katkıda bulunan bir AI ajanı için uçtan uca iş akışını özetlemektedir. Bu sürece bağlılık, yüksek kaliteli, tutarlı ve öngörülebilir sonuçlar elde etmek için kritik öneme sahiptir.
+This guide summarizes the end-to-end workflow for an AI agent contributing to the PackedLink project. Adhering to this process is critical for high-quality, consistent, and predictable outcomes.
 
-## Temel Felsefe
+## Core Philosophy
 
-Tüm katkılar, **[ZEN-SOLO-FIT](../../docs/zen.md)** içinde tanımlanan projenin temel ilkeleriyle uyumlu olmalıdır. Herhangi bir göreve başlamadan önce, yaklaşımınızın projenin ruhuyla uyumlu olduğundan emin olmak için bu ilkeleri gözden geçirin.
+All contributions must align with the core principles defined in **[ZEN-SOLO-FIT](../../docs/zen.md)**. Before starting any task, review these principles to ensure your approach matches the spirit of the project.
 
-## Uçtan Uca Görev İş Akışı
+## End-to-End Task Workflow
 
-Basit bir hata düzeltmesinden yeni bir özelliğe kadar her geliştirme görevi için aşağıdaki adımları izleyin.
+Follow these steps for every development task, from a simple bug fix to a new feature.
 
-### 1. Görev Anlayışı
+### 1. Task Understanding
 
-- **Amaç:** Kullanıcının isteğini ve istenen sonucu tam olarak anlayın.
-- **Eylem:**
-    - İstemciyi analiz edin ve temel gereksinimleri belirleyin.
-    - İstek belirsizse veya kritik ayrıntılardan yoksunsa, ilerlemeden *önce* açıklayıcı sorular sorun. Varsayımda bulunmayın.
+- **Goal:** Fully understand the user’s request and desired outcome.
+- **Actions:**
+    - Analyze the prompt and identify key requirements.
+    - If the request is unclear or missing critical details, ask clarifying questions *before* proceeding. Do not assume.
 
-### 2. Bilgi Toplama ve Analiz
+### 2. Information Gathering and Analysis
 
-- **Amaç:** Uygulama planınızı bilgilendirmek için mevcut kod tabanından ve dokümantasyondan bağlam toplayın.
-- **Eylem:**
-    - **Kod Tabanı Analizi:** Karmaşık görevler için `codebase_investigator`'ı veya hedeflenen aramalar için `search_file_content` / `glob`'ı kullanın.
-    - **Dokümantasyon İncelemesi:** İlgili dokümanları belirlemek ve okumak için **[Dokümantasyon Kullanım Kılavuzu](../../GEMINI.md)**'na başvurun. Anahtar dokümanlar şunları içerir:
-        - UI/UX değişiklikleri için: `docs/product/design-guide.md`, `docs/product/personas.md`
-        - Yeni özellikler için: `docs/vision.md`, `docs/product/competitive-analysis.md`
-        - Herhangi bir teknik çalışma için: `docs/technical/technical-decisions.md`, `docs/development/css-guide.md`
+- **Goal:** Collect context from the existing codebase and documentation to inform your implementation plan.
+- **Actions:**
+    - **Codebase Analysis:** Use `codebase_investigator` for complex tasks or `search_file_content` / `glob` for targeted searches.
+    - **Documentation Review:** Refer to `docs/README.md` to locate and read relevant docs. Key documents include:
+        - For UI/UX changes: `docs/product/design-guide.md`, `docs/product/personas.md`
+        - For new features: `docs/vision.md`, `docs/product/features.md`, `docs/product/competitive-analysis.md`
+        - For any technical work: `docs/technical/technical-decisions.md`, `docs/development/css-guide.md`
 
-### 3. Planlama ve Teklif
+### 3. Planning and Proposal
 
-- **Amaç:** Uygulama için açık, adım adım bir plan oluşturun.
-- **Eylem:**
-    - Planınızı oluşturmak ve takip etmek için `write_todos`'u kullanın.
-    - **Kritik:** Planınız yeni bir teknoloji gerektiriyorsa, mimaride önemli bir değişiklik içeriyorsa veya yerleşik kalıplardan sapıyorsa, öncelikle bir "Teknik Karar Talebi" (TKT) teklif etmeniz **gerekir**. `docs/technical/technical-decisions.md` içindeki çerçeveyi izleyin. Karar onaylanıp belgelenene kadar ilerlemeyin.
+- **Goal:** Build a clear, step-by-step plan for implementation.
+- **Actions:**
+    - Use `write_todos` to create and track your plan.
+    - **Critical:** If your plan requires new technology, introduces a significant architectural change, or deviates from established patterns, you **must** first propose a "Technical Decision Request" (TKT). Follow the framework in `docs/technical/technical-decisions.md`. Do not proceed until the decision is approved and documented.
+    - **GitHub Issues:** When creating issues, follow `docs/development/github-workflow.md` rules (Title Case, imperative, correct labels, milestone assignment).
 
-### 4. Uygulama
+### 4. Implementation
 
-- **Amaç:** Temiz, geleneksel ve doğru kod yazın.
-- **Eylem:**
-    - Projenin mevcut kurallarına, stiline ve yapısına titizlikle uyun.
-    - Özellikle yeni özellikler veya hata düzeltmeleri için değişikliklerinizi doğrulamak üzere birim testleri ekleyin.
-    - Değişikliklerinizin ardındaki "nedeni" açıklayan açıklayıcı commit mesajları kullanın.
+- **Goal:** Write clean, conventional, and correct code.
+- **Actions:**
+    - Follow the project’s established rules, style, and structure diligently.
+    - Add unit tests to validate your changes, especially for new features or bug fixes.
+    - Use descriptive commit messages that explain the "why" behind your changes.
 
-### 5. Doğrulama
+### 5. Validation
 
-- **Amaç:** Uygulamanın doğru, uyumlu ve yüksek kaliteli olduğundan emin olun.
-- **Eylem:**
-    - **Testleri Çalıştırın:** İlgili test paketini çalıştırın (backend için `just test`, frontend için `npm test`). Tüm testler geçmelidir.
-    - **Linter'ları Çalıştırın:** Stil ve kalite sorunlarını kontrol edin.
-    - **Tasarım Tokenı Doğrulaması:** CSS değişiklikleri için doğrulama betiğini çalıştırın:
+- **Goal:** Ensure the implementation is correct, consistent, and high quality.
+- **Actions:**
+    - **Run Tests:** Execute the relevant test suite (backend: `just test`, frontend: `npm test`). All tests must pass.
+    - **Run Linters:** Check for style and quality issues.
+    - **Design Token Validation:** For CSS changes, run the validation script:
       ```bash
       ./scripts/validate-design-tokens.sh
       ```
-      Çıktı `✅ PASSED` olmalıdır.
+      Output should be `✅ PASSED`.
 
-### 6. İnceleme ve Devir
+### 6. Review and Handoff
 
-- **Amaç:** Çalışmanızı insan incelemesi için açıkça sunun.
-- **Eylem:**
-    - Uygulanabilirse, UI değişikliklerinin ekran görüntülerini sağlayın.
-    - Tamamlanan `todos`'a ve ilgili kararlara (TKT'ler) bağlantı vererek çalışmanızı özetleyin.
-    - Çalışmanızın incelemeye hazır olduğunu açıkça belirtin.
+- **Goal:** Present your work clearly for human review.
+- **Actions:**
+    - Provide UI screenshots when applicable.
+    - Summarize your work, linking to completed `todos` and related decisions (TKTs).
+    - Clearly state that your work is ready for review.

@@ -1,187 +1,187 @@
 # PackedLink – Design Guide
 
-Bu doküman PackedLink'in görsel tasarım ve uygulama kurallarını tanımlar. Tüm UI implementasyonları bu kurallara uymalıdır; tek kaynak olarak bu dosyayı kullan.
+This document defines PackedLink’s visual design and implementation rules. All UI implementations must follow these rules; use this file as the single source.
 
 ---
 
-## 1. Renk paleti
+## 1. Color Palette
 
-**Ana tema: Sıcak nötr + terracotta aksan** (değerler design token'lar olarak `globals.css`'de tanımlı; component'lerde doğrudan hex/rgba kullanılmaz)
+**Main theme: Warm neutrals + terracotta accent** (values are defined as design tokens in `globals.css`; do not use direct hex/rgba in components)
 
 ### Primary Colors
 
 * **Warm background:** `#FDFAF4` → token: `--color-bg-warm`
-  * Sayfa zemini için temel arka plan.
+  * The base background for page surfaces.
 
 * **Cream background:** `#F5F0E8` → token: `--color-cream` / `--color-background`
-  * Alternatif yumuşak zemin, bölümler arası ayrım.
+  * Alternative soft background to separate sections.
 
-* **Yüzey rengi (kart arka planı):** `#FFFFFF` → token: `--color-surface`
-  * Liste kartları, modal içleri, form alanlarının arka planı.
+* **Surface color (card background):** `#FFFFFF` → token: `--color-surface`
+  * Background for list cards, modal interiors, form areas.
 
 * **Border:** `#E8DFD3` → token: `--color-border`
-  * İnce çizgiler, kart kenarları, ayraçlar.
+  * Thin lines, card edges, dividers.
 
 ### Secondary Colors
 
-* **Terracotta accent:** `#C8734C` → token: `--color-accent` (hover/active varyantları: `--color-accent-hover`, `--color-accent-active`)
-  * CTA butonları, önemli vurgu alanları, link barları.
+* **Terracotta accent:** `#C8734C` → token: `--color-accent` (hover/active variants: `--color-accent-hover`, `--color-accent-active`)
+  * CTA buttons, key emphasis areas, link bars.
 
-* **Sage (ikincil accent):** `#7A8F6F` → token: `--color-sage`
-  * İkincil vurgu alanlarında temkinli kullanılır.
+* **Sage (secondary accent):** `#7A8F6F` → token: `--color-sage`
+  * Used sparingly for secondary emphasis areas.
 
 ### Text Colors
 
-* **Ana metin:** `#2C2419` → token: `--color-text-primary`.
-* **İkincil metin:** `#6B6159` → token: `--color-text-secondary`.
-* **Başlık destek rengi:** `#8B7355` → token: `--color-brown` (başlık aksanı gerektiğinde; aşırı kullanılmaz).
+* **Primary text:** `#2C2419` → token: `--color-text-primary`.
+* **Secondary text:** `#6B6159` → token: `--color-text-secondary`.
+* **Heading support color:** `#8B7355` → token: `--color-brown` (for heading accent when needed; avoid overuse).
 
-**Token referansı (globals.css):**
+**Token reference (globals.css):**
 `--color-bg-warm`, `--color-cream`/`--color-background`, `--color-surface`, `--color-border`, `--color-accent` (+hover/active), `--color-sage`, `--color-text-primary`, `--color-text-secondary`, `--color-brown`, `--color-text-on-dark-*`, `--color-border-on-dark*`.
 
-**Not:** Coral/electric blue eski notları kaldırıldı; marka hissi sıcak nötr + terracotta aksanı ile tanımlıdır. Tema varyantı eklenirse token seti güncellenmelidir.
+**Note:** Old coral/electric blue notes are removed; brand feel is set by warm neutrals + terracotta accent. If a theme variant is added, update the token set.
 
 ---
 
-## 2. Tipografi
+## 2. Typography
 
-### Font ailesi
-Sistem sans-serif.
-Örnek: `-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`.
+### Font Family
+System sans-serif.
+Example: `-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`.
 
-### Boyutlar (web)
+### Sizes (web)
 
-* Ana gövde metni: 16px.
-* Küçük açıklama metni: 14px.
-* Kart başlıkları: 18–20px.
-* Sayfa başlıkları: 24–32px, breakpoint'e göre.
+* Main body text: 16px.
+* Small helper text: 14px.
+* Card titles: 18–20px.
+* Page titles: 24–32px depending on breakpoint.
 
-### Kalınlıklar
+### Weights
 
-* Gövde metni: `font-normal` (400).
-* Önemli vurgular: `font-medium` (500).
-* Başlıklar: `font-semibold` (600).
-* `bold` (700) sadece çok sınırlı yerlerde (örneğin brutal buton metninde) kullanılmalı.
+* Body text: `font-normal` (400).
+* Important emphasis: `font-medium` (500).
+* Headings: `font-semibold` (600).
+* Use `bold` (700) only in very limited cases (e.g., brutal button text).
 
-### Stil
+### Style
 
-* İtalik nadiren kullanılmalı.
-* Altı çizili metin sadece gerçek link için.
-
----
-
-## 3. Spacing ve layout
-
-**Scale (globals.css):** `spacing-xxs`, `xs`, `sm`, `md`, `lg`, `xl` (nominal 4x katmanlı ölçek). **Kullanımda her zaman spacing token'ı yaz, px yazma.**
-
-- **Sayfa ve container:** Mobile'da `spacing-sm` veya `spacing-md`; desktop'ta `spacing-lg`. Container padding varsayılan `spacing-lg`.
-- **Bölüm aralığı:** Ana bloklar arası `spacing-lg`/`spacing-xl`; içerideki dikey stack'lerde `spacing-sm`/`spacing-md`.
-- **Kartlar:** İç padding `spacing-sm`/`spacing-md`; kartlar arası grid gap `spacing-sm`/`spacing-md`.
-- **Liste satırları:** Dikey padding `spacing-xs`/`spacing-sm`; `spacing-xxs` altına düşme.
-- **Form kontrolleri:** Input/textarea padding yatay `spacing-sm`, dikey `spacing-xs`; label alt boşluğu `spacing-xs`.
-- **Butonlar:** Dikey `spacing-xs`, yatay `spacing-lg`; min-height buton bölümündeki standartla sağlanır.
-- **Genel kural:** Aynı blok içinde aynı spacing seviyesini koru; tutarlılık için ölçek dışı (token olmayan) değer kullanma.
+* Use italics rarely.
+* Underline only for real links.
 
 ---
 
-## 4. Kenar yuvarlama, border ve gölgeler
+## 3. Spacing and Layout
 
-### Kenar yuvarlama (border-radius)
+**Scale (globals.css):** `spacing-xxs`, `xs`, `sm`, `md`, `lg`, `xl` (nominal 4x layered scale). **Always write the spacing token in use; do not write raw px.**
 
-* Varsayılan radius: **4px**.
-* Avatarlar dahil neredeyse her şeyde 4px kullanılır.
-* Tam yuvarlak formlar (örneğin `rounded-full`) mümkün olduğunca kullanılmaz.
-
-### Border
-
-* Kartlar: 1px solid, genelde `--color-border` veya tema rengine yakın bir ton.
-* Bölüm içi ayraçlar: ince border veya hafif ayırıcı çizgiler (açık gri tonlarla, token üzerinden).
-
-### Gölge (shadow)
-
-* Hafif shadow kartları zeminden ayırmak için yeterli.
-* Ağır, bulanık gölgeler kullanılmaz.
+- **Page and container:** `spacing-sm` or `spacing-md` on mobile; `spacing-lg` on desktop. Default container padding is `spacing-lg`.
+- **Section spacing:** `spacing-lg`/`spacing-xl` between major blocks; `spacing-sm`/`spacing-md` for vertical stacks inside.
+- **Cards:** Inner padding `spacing-sm`/`spacing-md`; grid gap between cards `spacing-sm`/`spacing-md`.
+- **List rows:** Vertical padding `spacing-xs`/`spacing-sm`; don’t go below `spacing-xxs`.
+- **Form controls:** Input/textarea padding horizontal `spacing-sm`, vertical `spacing-xs`; label bottom margin `spacing-xs`.
+- **Buttons:** Vertical `spacing-xs`, horizontal `spacing-lg`; min-height is enforced by the button section standard.
+- **General rule:** Keep the same spacing level within the same block; avoid off-scale (non-token) values for consistency.
 
 ---
 
-## 5. Kart ve buton kuralları
+## 4. Border Radius, Borders, and Shadows
 
-### Kartlar
+### Border Radius
 
-Her kartın içinde net bir hiyerarşi olmalı:
+* Default radius: **4px**.
+* Use 4px for almost everything, including avatars.
+* Avoid fully rounded shapes (e.g., `rounded-full`) as much as possible.
 
-1. Kullanıcı avatarı
-2. Kullanıcı adı + kullanıcı adı handle'ı
-3. Liste logosu + liste başlığı
-4. Link satırları
-5. En altta küçük açıklama + call-to-action (örneğin "Linki kopyala").
+### Borders
 
-### Butonlar
+* Cards: 1px solid, typically `--color-border` or a tone close to the theme color.
+* In-section dividers: thin borders or subtle separator lines (light grays via tokens).
+
+### Shadows
+
+* Light shadow is enough to lift cards from the background.
+* Avoid heavy, blurry shadows.
+
+---
+
+## 5. Card and Button Rules
+
+### Cards
+
+Each card should have a clear hierarchy:
+
+1. User avatar
+2. Username + user handle
+3. List logo + list title
+4. Link rows
+5. Small description + call-to-action at the bottom (e.g., "Copy link").
+
+### Buttons
 
 * **Radius:** 4px.
-* **Yükseklik:** minimum 32–36px.
-* **Metin:** kısa, net komut cümlesi. Örnek: "Linki kopyala", "Listeyi paylaş".
+* **Height:** minimum 32–36px.
+* **Text:** short, clear command sentence. Examples: "Copy link", "Share list".
 
-#### Buton varyantları ve renk kuralları
+#### Button Variants and Color Rules
 
 **Primary Button (CTA):**
-* **Açık background üzerinde (warm/white):** Terracotta accent token (`--color-accent` ve hover/active varyantları) kullanılır.
-  * Metin: `--color-surface` üzeri için `--color-text-on-dark-primary` veya net kontrast sağlayan açık/dark text token'ı.
-  * Gerekçe: Sıcak nötr zeminde CTA görünürlüğü sağlar.
+* **On light backgrounds (warm/white):** Use the terracotta accent token (`--color-accent` and hover/active variants).
+  * Text: `--color-text-on-dark-primary` or another high-contrast light/dark text token for surfaces like `--color-surface`.
+  * Rationale: Ensures CTA visibility on warm neutral backgrounds.
 
-* **Koyu background üzerinde (brown/terracotta tonları):** Metin `--color-text-on-dark-*`, arka plan için accent veya kontrast sağlayan token seçilir (örn. `--color-accent` üzerinde açık metin).
+* **On dark backgrounds (brown/terracotta tones):** Text uses `--color-text-on-dark-*`; choose accent or another contrasting token for the background (e.g., light text on `--color-accent`).
 
-**Ghost Button (İkincil aksiyon):**
-* **Koyu background üzerinde:** Transparent + `--color-border-on-dark` + `--color-text-on-dark-*` token'ları.
-  * Hover: Border opacity artırılır, hafif overlay token'ı kullanılır.
+**Ghost Button (Secondary action):**
+* **On dark backgrounds:** Transparent + `--color-border-on-dark` + `--color-text-on-dark-*` tokens.
+  * Hover: Increase border opacity, use a subtle overlay token.
 
-* **Açık background üzerinde:** Border ve text primary token'lar (`--color-border`, `--color-text-primary`).
-  * Hover: `--color-surface-muted` benzeri token ile arka plan açılır.
+* **On light backgrounds:** Border and text use primary tokens (`--color-border`, `--color-text-primary`).
+  * Hover: Lighten the background with a token like `--color-surface-muted`.
 
-**Kritik Kural:**
-Button background'ı ASLA page background ile aynı renk olmamalı. Button kaybolur ve CTA görünmez olur.
+**Critical Rule:**
+Never set the button background the same as the page background. The button disappears and the CTA loses visibility.
 
-### Link satırları
+### Link Rows
 
-* Sol tarafta 2–6px genişliğinde düz renk bar (`--color-accent`).
-* Üst satır başlık, alt satır kısa açıklama.
-* Satırın tamamı tıklanabilir alan.
+* Solid color bar 2–6px wide on the left (`--color-accent`).
+* Top line is the title, bottom line is a short description.
+* The entire row is a clickable area.
 
 ---
 
 ## 6. Component Checklist
 
-Her yeni UI component'i implement ederken kontrol et:
+When implementing each new UI component, verify:
 
-- [ ] Renk paleti uyumlu mu? (token'lar: warm background, cream, surface, accent terracotta)
-- [ ] Font boyutları doğru mu? (16px base, 14px small)
-- [ ] Spacing 4'ün katları mı? (token veya değişken ile)
-- [ ] Border radius 4px mi?
-- [ ] Shadow hafif mi?
-- [ ] Buton yüksekliği 32-36px arası mı?
-- [ ] Link satırlarında sol bar var mı? (accent token)
-- [ ] Kartlarda hiyerarşi net mi?
-
----
-
-## Implementation Kuralları (Developer)
-
-- **Stil yaklaşımı:** Sadece CSS Modules + semantik class isimleri. Utility class yok, inline style yok.
-- **Design tokens zorunlu:** Renk, spacing, font-size, radius değerleri token'lardan alınır; component'lerde hex/rgba/hsl yazılmaz.
-- **Dosya yapısı:** Her component kendi `.module.css` dosyasına sahip olmalı; sayfa spesifik stiller de module kullanır.
-- **İsimlendirme:** Class isimleri elementin rolünü anlatmalı (`container`, `title`, `ctaButton`), stil efektini değil (`flex`, `gap16`).
-- **Context kontrolü:** Koyu zemin için `--color-*-on-dark-*` token'larını kullan; açık zemin için `--color-text-*` vb.
-- **Enforcement:** Stylelint/validate script'te hardcode renkler yasaktır; `globals.css` token tanımlarını güncel tut.
-- **Reuse:** Ortak layout/kalıp ihtiyaçlarında yeni utility tanımlamak yerine semantik class'ları ve token'ları kullan.
+- [ ] Is the color palette aligned? (tokens: warm background, cream, surface, accent terracotta)
+- [ ] Are font sizes correct? (16px base, 14px small)
+- [ ] Is spacing in multiples of 4? (via token or variable)
+- [ ] Is border radius 4px?
+- [ ] Is the shadow light?
+- [ ] Is button height between 32-36px?
+- [ ] Do link rows have a left bar? (accent token)
+- [ ] Is the hierarchy inside cards clear?
 
 ---
 
-## 7. Kullanım notu
+## Implementation Rules (Developer)
 
-Yeni UI eklerken:
+- **Style approach:** Only CSS Modules + semantic class names. No utility classes, no inline styles.
+- **Design tokens mandatory:** Pull color, spacing, font-size, radius values from tokens; do not write hex/rgba/hsl in components.
+- **File structure:** Each component should have its own `.module.css` file; page-specific styles also use modules.
+- **Naming:** Class names should describe the element’s role (`container`, `title`, `ctaButton`), not the style effect (`flex`, `gap16`).
+- **Context awareness:** Use `--color-*-on-dark-*` tokens for dark backgrounds; `--color-text-*` etc. for light backgrounds.
+- **Enforcement:** Hardcoded colors are forbidden by the stylelint/validate script; keep token definitions in `globals.css` up to date.
+- **Reuse:** For shared layouts/pattern needs, use semantic classes and tokens instead of defining new utilities.
 
-1. Bu dokümandaki renk, font ve spacing kurallarını kontrol et.
-2. Mevcut component'lerden örnek al (tutarlılık için).
-3. Gereksiz dekorasyon veya farklı stil ekleme.
+---
 
-Bu dosya, PackedLink'in görsel tutarlılığını korumak için referans noktasıdır.
+## 7. Usage Note
+
+When adding new UI:
+
+1. Check the color, font, and spacing rules in this document.
+2. Take examples from existing components (for consistency).
+3. Avoid unnecessary decoration or divergent styling.
+
+This file is the reference point to maintain PackedLink’s visual consistency.

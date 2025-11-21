@@ -4,23 +4,17 @@
 
 ```
 packedlink/
-├── .claude/                    # Agent definitions
-│   └── agents/
-│       ├── designer.md
-│       ├── fullstack-developer.md
-│       ├── icerik-yazari.md
-│       ├── qa-master.md
-│       ├── zen-bekcisi.md
-│       ├── feedback-analizi.md
-│       └── workflow-orchestrator.md
-│
+├── AGENTS.md                   # AI agent onboarding/workflow
 ├── docs/
 │   ├── development/
 │   ├── marketing/
 │   │   └── brand-voice.md
 │   ├── product/
 │   │   ├── design-guide.md
-│   │   └── personas.md
+│   │   ├── personas.md
+│   │   └── features.md
+│   ├── technical/
+│   │   └── tech-stack.md
 │   └── zen.md
 │
 ├── src/
@@ -57,13 +51,15 @@ packedlink/
 
 ## Key Directories
 
-### `.claude/agents/`
-Agent definitions for workflow automation.
+### `AGENTS.md`
+AI agent onboarding and workflow checklist.
 
 ### `docs/`
 - `zen.md` - Product principles
-- `product/design-guide.md` - Design system rules (tek stil kaynağı)
+- `product/design-guide.md` - Design system rules (single style source)
 - `marketing/brand-voice.md` - Brand tone & voice
+- `product/features.md` - Feature set (Free vs Pro)
+- `technical/tech-stack.md` - Technologies we use and how
 
 ### `src/frontend/`
 Next.js 14 app with CSS Modules + design tokens (utility yok).
@@ -74,7 +70,7 @@ Next.js 14 app with CSS Modules + design tokens (utility yok).
 - Minimal, no unnecessary variants
 
 ### `src/backend/`
-Django 5.0 backend with PostgreSQL.
+Django 5.0 backend with PostgreSQL, API via **Django Ninja** (OpenAPI docs at `/api/v1/docs`).
 
 ### `src/tests/`
 pytest-bdd + Playwright E2E tests.
@@ -106,9 +102,9 @@ just test-frontend    # Frontend tests
 - React Query (data)
 
 **Backend:**
-- Django 5.0
+- Django 5.0 + Django Ninja (API, OpenAPI)
 - PostgreSQL
-- Django REST Framework
+- (No Django REST Framework)
 
 **Testing:**
 - pytest-bdd (BDD scenarios)
@@ -135,13 +131,4 @@ All components in `src/frontend/components/`:
 
 ## Agent Workflow
 
-Feature development workflow:
-1. **zen-bekcisi** - Validates feature against ZEN principles
-2. **fullstack-developer** - Plans & estimates
-3. **designer + icerik-yazari** - Prepare components & copy (parallel)
-4. **qa-master** - Writes BDD scenarios
-5. **fullstack-developer** - Implements feature
-6. **qa-master** - Runs tests
-7. Done ✅
-
-See: `.claude/agents/workflow-orchestrator.md`
+See `AGENTS.md` for the current AI agent workflow and responsibilities.
