@@ -1,6 +1,48 @@
 # Technical Decisions - PackedLink
 
-Bu doküman, PackedLink'in teknik kararlarını ve arkasındaki mantığı içerir.
+## Decision-Making Framework
+
+This section outlines the process for proposing, discussing, and finalizing significant technical decisions within the kaydet.link project. The goal is to ensure transparency, gather diverse perspectives, and make well-reasoned choices that align with the project's vision and principles (see `docs/zen.md`).
+
+### Process for a Request for Technical Decision (RTD)
+
+For any new technology adoption, significant architectural change, or a decision that impacts multiple components/teams, an RTD should be initiated.
+
+1.  **Initiation:** The proposer creates a draft RTD document using the template below.
+2.  **Review & Discussion:** The RTD is shared with relevant stakeholders (e.g., core development team, product owners) for review and discussion. This can happen asynchronously (comments on the document) or synchronously (dedicated meeting).
+3.  **Refinement:** Based on feedback, the proposer refines the RTD.
+4.  **Finalization:** Once a consensus is reached, or a decision is made by the designated authority, the RTD is finalized and merged into this `technical-decisions.md` document, or referenced from here. The decision, its rationale, and any alternatives considered are documented.
+
+### RTD Template
+
+```markdown
+### RTD-YYYYMMDD-SHORT-TITLE
+
+*   **Status:** [Proposed | Approved | Rejected | Superseded by RTD-XXXX]
+*   **Proposer:** [Your Name/Team/AI Agent Identifier]
+*   **Date:** YYYY-MM-DD
+*   **Problem Statement:**
+    *   What specific problem are we trying to solve?
+    *   What are the current limitations or challenges?
+*   **Proposed Solution:**
+    *   Describe the proposed technical decision in detail.
+    *   How does it address the problem statement?
+    *   What are the key components, technologies, or approaches involved?
+*   **Alternatives Considered:**
+    *   Briefly describe other options explored.
+    *   Why were they not chosen (e.g., complexity, cost, performance, maintainability)?
+*   **Pros & Cons:**
+    *   **Pros:** List the benefits of the proposed solution.
+    *   **Cons:** List the drawbacks, risks, or potential challenges.
+*   **Impact:**
+    *   What is the estimated effort for implementation?
+    *   What are the impacts on existing systems, performance, security, and developer experience?
+    *   Any implications for future development or scalability?
+*   **Dependencies:**
+    *   Are there any other decisions or prerequisites required?
+*   **Open Questions/Discussion Points:**
+    *   Any unresolved issues or points needing further discussion.
+```
 
 ## URL Schemas
 

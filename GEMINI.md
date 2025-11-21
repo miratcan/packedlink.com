@@ -68,7 +68,8 @@ To ensure consistency and efficiency, please refer to the following documentatio
 *   **`docs/product/personas.md`**: Detailed descriptions of target user segments. **When to use:** To understand the users for whom features are being developed, especially during design and feature planning.
 *   **`docs/technical/blog-system.md`**: Technical overview of the project's blog system. **When to use:** When making changes or additions to the blog functionality.
 *   **`docs/technical/technical-decisions.md`**: Records fundamental technical and architectural decisions. **When to use:** To understand the reasoning behind key technical choices and ensure new implementations align with them.
-*   **`docs/development/agent-system-improvements.md`**: Details the improved workflow and rules for interacting with AI agents. **When to use:** Constantly refer to this when working with agents to ensure proper delegation, design validation, and adherence to development rules.
+*   **`docs/development/ai-contribution-guide.md`**: Comprehensive guide for AI agents contributing to the project. **When to use:** Refer constantly for workflow, decision-making, and contribution standards.
+
 *   **`docs/development/css-guide.md`**: Guidelines for CSS, including design token usage and enforcement. **When to use:** When writing or reviewing any CSS, to ensure adherence to styling conventions and proper use of design tokens.
 
 
