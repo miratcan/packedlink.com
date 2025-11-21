@@ -6,7 +6,6 @@ from typing import Any
 import shortuuid
 from django.core.exceptions import PermissionDenied
 from django.db import models
-from django.urls import reverse
 from django.utils import timezone
 
 from .posthog import capture_list_event
@@ -64,14 +63,6 @@ class List(models.Model):
         if not self.manage_token:
             self.manage_token = shortuuid.uuid()
         super().save(*args, **kwargs)
-
-    @property
-    def public_path(self) -> str:
-        return reverse("lists:public-detail", kwargs={"hash_id": self.hash_id})
-
-    @property
-    def management_share_path(self) -> str:
-        return f"{reverse('lists:builder', kwargs={'manage_token': self.manage_token})}?auth={self.manage_token}"
 
     @property
     def link_count(self) -> int:

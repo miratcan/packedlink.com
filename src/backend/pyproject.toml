@@ -8,6 +8,8 @@ dependencies = [
     "django-environ>=0.11,<0.12",
     "shortuuid>=1.0,<2.0",
     "posthog>=3.4,<4.0",
+    "django-ninja>=1.5.0",
+    "markdown2>=2.5.4",
 ]
 
 [project.optional-dependencies]
@@ -21,7 +23,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["lists", "config"]
+packages = ["blog", "lists", "config"]
 
 [tool.uv]
 package = true
@@ -30,3 +32,9 @@ package = true
 DJANGO_SETTINGS_MODULE = "config.settings"
 pythonpath = ["."]
 addopts = "-q"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-django>=4.11.1",
+]
