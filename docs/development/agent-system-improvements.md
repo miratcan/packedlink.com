@@ -190,7 +190,7 @@ Stage 9: Completion
 
 ### 3. Documentation
 
-#### Designer Validation Checklist (docs/development/designer-validation-checklist.md) - YENİ
+
 **İçerik:**
 - Pre-implementation checklist (spec verirken)
 - Post-implementation checklist (validation)
@@ -254,7 +254,7 @@ Tüm session learnings ve improvements dokümante edildi.
    1. ./scripts/validate-design-tokens.sh çalıştır
    2. Code review (hardcode renk var mı?)
    3. Screenshot review (text görünür mü?)
-   4. designer-validation-checklist.md kullan
+   
    → Verdict: APPROVED / CHANGES REQUESTED
    ↓
 6. Eğer APPROVED:
@@ -287,7 +287,7 @@ Tüm session learnings ve improvements dokümante edildi.
 5. **Designer validation mandatory**
    - Her implementation sonrası
    - Screenshot + code review
-   - designer-validation-checklist.md kullanılmalı
+   
 
 ---
 
@@ -303,7 +303,7 @@ Build-time enforcement (hardcode renk varsa error).
 Pre-commit check (`./scripts/validate-design-tokens.sh`).
 
 ### Layer 4: Designer Checklist
-Manual validation template (designer-validation-checklist.md).
+
 
 ### Layer 5: Weekly Audit
 Designer her hafta script çalıştırmalı.
@@ -360,7 +360,7 @@ Designer her hafta script çalıştırmalı.
 
 ### Documentation
 - `docs/development/css-guide.md` - CSS & styling guide
-- `docs/development/designer-validation-checklist.md` - Validation checklist
+
 - `docs/development/agent-system-improvements.md` - Bu dosya
 
 ### Design System
