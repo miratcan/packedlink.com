@@ -16,13 +16,11 @@ kaydet.link/
 │
 ├── docs/
 │   ├── development/
-│   │   └── storybook-setup.md
 │   ├── marketing/
 │   │   └── brand-voice.md
 │   ├── product/
 │   │   ├── design-guide.md
 │   │   └── personas.md
-│   ├── focus.md
 │   └── zen.md
 │
 ├── src/
@@ -32,9 +30,6 @@ kaydet.link/
 │   │   └── ...
 │   │
 │   ├── frontend/              # Next.js frontend
-│   │   ├── .storybook/        # Storybook config
-│   │   │   ├── main.ts
-│   │   │   └── preview.ts
 │   │   ├── app/               # Next.js app router
 │   │   │   ├── globals.css    # CSS variables + global styles
 │   │   │   ├── layout.tsx
@@ -43,12 +38,10 @@ kaydet.link/
 │   │   │   ├── Button/
 │   │   │   │   ├── Button.tsx
 │   │   │   │   ├── Button.module.css
-│   │   │   │   ├── Button.stories.tsx
 │   │   │   │   └── index.ts
 │   │   │   ├── Card/
 │   │   │   ├── Hero/
-│   │   │   ├── LinkBar/
-│   │   │   └── README.md
+│   │   │   └── LinkBar/
 │   │   ├── lib/               # Utilities
 │   │   ├── store/             # Zustand stores
 │   │   └── package.json
@@ -69,22 +62,16 @@ Agent definitions for workflow automation.
 
 ### `docs/`
 - `zen.md` - Product principles
-- `focus.md` - Current phase scope
 - `product/design-guide.md` - Design system rules
 - `marketing/brand-voice.md` - Brand tone & voice
 
 ### `src/frontend/`
-Next.js 14 app with pure CSS (no Tailwind).
+Next.js 14 app with Tailwind CSS.
 
 **Components:**
 - All components use CSS modules
 - CSS variables from `globals.css`
-- Storybook stories for each component
 - Minimal, no unnecessary variants
-
-**Storybook:**
-- Run: `just storybook` or `npm run storybook`
-- URL: http://localhost:6006
 
 ### `src/backend/`
 Django 5.0 backend with PostgreSQL.
@@ -102,7 +89,6 @@ just test             # Backend tests
 
 # Frontend
 just dev              # Next.js dev server
-just storybook        # Storybook (design system)
 
 # Tests
 just test-all         # All tests
@@ -115,8 +101,7 @@ just test-frontend    # Frontend tests
 **Frontend:**
 - Next.js 14.2 (App Router)
 - React 18.3
-- Pure CSS (CSS Modules + CSS Variables)
-- Storybook 10.0
+- Tailwind CSS (and Pure CSS for component-specific styles)
 - Zustand (state)
 - React Query (data)
 
@@ -144,13 +129,10 @@ All components in `src/frontend/components/`:
 - LinkBar
 
 **Rules:**
-- ❌ No Tailwind
-- ❌ No inline styles
-- ✅ CSS modules
+- ✅ Tailwind CSS for utility-first styling
+- ✅ CSS modules for component-specific styles
 - ✅ CSS variables
 - ✅ Minimal (no unnecessary variants)
-
-See: `src/frontend/components/README.md`
 
 ## Agent Workflow
 

@@ -22,17 +22,32 @@ export default function WaitlistPage() {
 
     // For now, just store in localStorage - you'll replace this with API call later
     try {
-      // TODO: Replace with actual API call to store in database
-      const existingEmails = JSON.parse(localStorage.getItem('waitlist') || '[]')
-      existingEmails.push({
-        email,
-        timestamp: new Date().toISOString()
-      })
-      localStorage.setItem('waitlist', JSON.stringify(existingEmails))
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || ''}/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded', // Django forms expect this content type
+        },
+        body: new URLSearchParams({
+          'curator_email': email,
+          'title': 'New List', // Default value
+          'description': 'Created from waitlist', // Default value
+          'curator_name': 'Waitlist User', // Default value
+        }).toString(),
+      });
 
-      setSubmitted(true)
+      if (!response.ok) {
+        throw new Error('Failed to join waitlist.');
+      }
+
+      // Backend redirects to builder page on success, we need to handle this
+      // For now, we'll just show success state. In a full integration,
+      // you might redirect the user to the builder page with the manage_token
+      // if the frontend was also intended to immediately handle the new list.
+      // Given the description, just saving the email is sufficient for the waitlist.
+
+      setSubmitted(true);
     } catch (err) {
-      setError('Something went wrong. Please try again.')
+      setError('Something went wrong. Please try again.');
     }
   }
 
