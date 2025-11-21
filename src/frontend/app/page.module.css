@@ -206,9 +206,9 @@
 }
 
 .heroExampleCard {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: transform 0.3s;
 }
@@ -223,7 +223,7 @@
 }
 
 .exampleCardBody {
-  padding: 1.5rem;
+  padding: var(--spacing-lg);
 }
 
 .exampleProfile {
@@ -277,12 +277,15 @@
 .exampleLinks {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--spacing-sm);
 }
 
 .exampleLink {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius);
+  background: var(--color-cream);
 }
 
 .exampleLinkBar {
