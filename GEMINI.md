@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-Kaydet.link is a web application designed to enable users to quickly save links, transform them into curated lists, and share them via a single link. It targets both hobby users and professionals (e.g., affiliate marketers, content creators, consultants) who need to organize and share valuable online resources.
+PackedLink is a web application designed to enable users to quickly save links, transform them into curated lists, and share them via a single link. It targets both hobby users and professionals (e.g., affiliate marketers, content creators, consultants) who need to organize and share valuable online resources.
 
 The project follows a monorepo structure, separating the backend (Django) and frontend (Next.js 14) into distinct `src/backend` and `src/frontend` directories.
 
 **Key Technologies:**
 *   **Backend:** Django, Python 3.9+, uv (package management), just (command runner), pytest (testing).
-*   **Frontend:** Next.js 14, Node.js 18+, npm/pnpm/yarn, TypeScript, Tailwind CSS, React Query, Zustand (state management).
+*   **Frontend:** Next.js 14, Node.js 18+, npm/pnpm/yarn, TypeScript, CSS Modules + design tokens, React Query, Zustand (state management).
 
 
 
@@ -50,7 +50,7 @@ The project utilizes `just` as a command runner for backend operations and stand
 
 *   **Documentation Philosophy:** The project emphasizes a "minimal, readable, and actionable" documentation approach, guided by "ZEN-SOLO-FIT" and "ZEN-CORE-FIRST" principles. Key documentation can be found in the `docs/` directory.
 *   **Backend Testing:** Pytest is used for backend testing, with specific tests for the publish flow and expiration command.
-*   **Frontend Structure:** Utilizes Next.js App Router, TypeScript, Tailwind CSS, React Query, and Zustand for state management.
+*   **Frontend Structure:** Utilizes Next.js App Router, TypeScript, CSS Modules + design tokens, React Query, and Zustand for state management.
 *   **Code Style:** `.stylelintrc.json` is present, suggesting adherence to specific CSS/styling conventions. ESLint is likely configured for TypeScript/JavaScript due to `.eslintrc.json` in the frontend.
 
 ## Documentation Usage Guide
@@ -86,4 +86,3 @@ The project's current focus and objectives will now be tracked via GitHub milest
 ```bash
 ./scripts/validate-design-tokens.sh
 ```
-

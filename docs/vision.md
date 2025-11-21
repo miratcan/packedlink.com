@@ -1,4 +1,4 @@
-# Kaydet.link - Detaylı Proje Tanımı
+# PackedLink - Detaylı Proje Tanımı
 
 ## 1. Ürün Kimliği
 
@@ -6,7 +6,7 @@
 
 **"Blogger.com for link lists" - Teknik bilgi gerektirmeden link listesi yapma ve paylaşma aracı.**
 
-Nasıl Blogger zamanında HTML bilmeyenleri blog sahibi yaptıysa, Kaydet.link de teknik bilgisi olmayanları liste küratörü yapıyor.
+Nasıl Blogger zamanında HTML bilmeyenleri blog sahibi yaptıysa, PackedLink de teknik bilgisi olmayanları liste küratörü yapıyor.
 
 **Temel değer önerisi:**
 - Her liste bir konuya odaklanıyor
@@ -31,29 +31,7 @@ Nasıl Blogger zamanında HTML bilmeyenleri blog sahibi yaptıysa, Kaydet.link d
 
 ## 2. Hedef Kitle
 
-### Katman 1: Herkes için Kaydet.link (Free)
-
-**Kim?**
-- Hobi kullanıcıları
-- Bilgi paylaşmak isteyenler
-- Kişisel koleksiyonlarını düzenleyenler
-
-**Ne sağlıyoruz?**
-- Linklerini derli toplu rehbere dönüştürme
-- Tek linkle paylaşılabilir rehber
-- Basit, temiz, güvenilir deneyim
-
-### Katman 2: İş için kullananlar (Pro)
-
-**Kim?**
-- Affiliate link paylaşanlar
-- İçerik üreticiler (YouTube, Instagram, newsletter)
-- Danışmanlar, eğitmenler, freelancer'lar
-
-**Ne sağlıyoruz?**
-- Daha az hata, daha hızlı link yönetimi
-- Basit tıklama istatistikleri
-- Sponsor vitrin ve ekstra görünürlük şansı
+Persona detaylarının tek kaynağı `docs/product/personas.md`’dir. Vision dokümanında tekrar etmeyiz; persona stratejisi için o dosyaya referans ver.
 
 ## 3. Örnek Rehber Stratejisi
 
@@ -124,7 +102,7 @@ Nasıl Blogger zamanında HTML bilmeyenleri blog sahibi yaptıysa, Kaydet.link d
 
 ### Viral Mekanizma
 - Liste sonunda "Siz de listenizi yapın"
-- "Made with Kaydet.link" watermark (zarif)
+- "Made with PackedLink" watermark (zarif)
 - Kolay paylaşım için hazır metinler
 - Liste kopyalama özelliği
 
@@ -204,7 +182,7 @@ Nasıl Blogger zamanında HTML bilmeyenleri blog sahibi yaptıysa, Kaydet.link d
 4. **Öğretmenler:** WhatsApp gruplarında
 5. **HR:** Email template'lerinde
 
-Davranış var, araç eksik. Kaydet.link bu boşluğu dolduruyor.
+Davranış var, araç eksik. PackedLink bu boşluğu dolduruyor.
 
 ---
 
@@ -213,7 +191,7 @@ Davranış var, araç eksik. Kaydet.link bu boşluğu dolduruyor.
 - Tek bir konuya ait seçme linkleri rehber listeye çevir.
 - Aynı link üzerinden herkese paylaş, liste güncellense bile URL değişmesin.
 - Ana problem cümlesi: **“Biri bana aynı soruyu tekrar sorduğunda link aramakla vakit kaybetmeyeyim.”**
-- Kaydet.link ne Linktree gibi bio-link aracı ne de klasik bookmark yöneticisi; mikro kürasyon + paylaşılabilir rehber kombinasyonu.
+- PackedLink ne Linktree gibi bio-link aracı ne de klasik bookmark yöneticisi; mikro kürasyon + paylaşılabilir rehber kombinasyonu.
 
 ## 10. Neden Fırsat?
 
@@ -250,12 +228,12 @@ Kategori farkındalığı yok; bu, “terimi tanımlayan” marka olma fırsatı
 1. **Affiliate İçerikçi – “Elif”**
    - Instagram/TikTok’ta ürün tavsiye ediyor; her gün aynı sorularla boğuşuyor.
    - DM/Notes karmaşasında affiliate linkleri yönetemiyor, tıklamaları ölçemiyor.
-   - Kaydet.link: temalı listeler (“Bebek Seti”, “Stüdyo Ekipmanı”), tek link, güncellenebilir rehber, Pro’da basic analytics.
+   - PackedLink: temalı listeler (“Bebek Seti”, “Stüdyo Ekipmanı”), tek link, güncellenebilir rehber, Pro’da basic analytics.
 
 2. **Mekân Küratörü – “Ali”**
    - Arkadaşlarına sürekli restoran/bar öneren kişi.
    - WhatsApp’ta kaybolan mesajlar, Google Maps karmaşası.
-   - Kaydet.link: “Kadıköy Kahve”, “Beyoğlu Bar” gibi listeler; tek linki her gruba atar, herkes güncel bilgiyi görür.
+   - PackedLink: “Kadıköy Kahve”, “Beyoğlu Bar” gibi listeler; tek linki her gruba atar, herkes güncel bilgiyi görür.
 
 3. **Kaynak Küratörü (Öğretmen, developer, eğitmen, danışman)**
    - Öğrenciye/ekibe kaynak listesi paylaşmak istiyor.

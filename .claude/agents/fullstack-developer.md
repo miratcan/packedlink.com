@@ -51,7 +51,7 @@ Bu agent şu dosyalara tam erişime sahiptir:
 **Frontend:**
 - Next.js 14+ (App Router)
 - TypeScript (strict mode)
-- Tailwind CSS
+- CSS Modules + design tokens (utility yok)
 - React Query (server state)
 - Zustand (client state, gerekirse)
 

@@ -1,6 +1,6 @@
-# Kaydet.link AI Agents
+# PackedLink AI Agents
 
-Kaydet.link projesinin geliştirilmesinde kullanılan AI agentları.
+PackedLink projesinin geliştirilmesinde kullanılan AI agentları.
 
 ## 📋 Agent Listesi
 

@@ -13,7 +13,7 @@ const display = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Kaydet.link",
+  title: "PackedLink",
   description: "Link listelerini insanlara sunmanın sade yolu",
 };
 

@@ -40,14 +40,14 @@ const seedLinks = (): BuilderLink[] => [
   {
     id: randomId(),
     title: "Kürasyon manifestosu",
-    url: "https://kaydet.link/manifesto",
+    url: "https://packedlink.com/manifesto",
     note: "Public sayfada nasıl görüneceğini gösterir",
   },
 ];
 
 const baseState = {
   title: "Sezonun ilham veren linkleri",
-  tagline: "Kaydet.link builder mock data",
+  tagline: "PackedLink builder mock data",
   description: "Backend API hazır olana kadar bu state ile frontendi test ediyoruz.",
   creatorName: "",
   creatorHandle: "",

@@ -2,11 +2,11 @@
 
 ## Özet
 
-Kaydet.link’in rekabet ettiği alan mikro kürasyon araçları. Bio-link devleri (Linktree vb.) ya da ağır bookmark yöneticileri değil; küçük ama niş oyuncular var. Hiçbiri persona odaklı olmadığı için kategori liderliği boşta. Aşağıdaki analiz P1 hedeflerinin dayandığı güncel durumu özetler.
+PackedLink’in rekabet ettiği alan mikro kürasyon araçları. Bio-link devleri (Linktree vb.) ya da ağır bookmark yöneticileri değil; küçük ama niş oyuncular var. Hiçbiri persona odaklı olmadığı için kategori liderliği boşta. Aşağıdaki analiz güncel durumu ve konumlandırma temelini özetler.
 
 ## Doğrudan Rakipler
 
-| Ürün | Durum & Ölçek | Güçlü Yan | Zayıflık | Kaydet.link Farkı |
+| Ürün | Durum & Ölçek | Güçlü Yan | Zayıflık | PackedLink Farkı |
 |------|---------------|-----------|----------|-------------------|
 | **LinksList.app** | 2019 çıkış, Product Hunt #1, açık kaynak, 30K+ liste | Erken çıkmış, gerçek kullanıcı verisi, basit işleyen ürün | Persona/marketing yok, analitika zayıf, roadmap yavaş | Persona odaklı konum + Pro analytics, Türkçe başlangıç |
 | **Weblinkslist.online** | Basit freemium, indie proje | Öğrenmesi çok kolay | Tasarım güvensiz, tek fonksiyonlu | Modern UX, güven veren marka |
@@ -31,7 +31,7 @@ Kaydet.link’in rekabet ettiği alan mikro kürasyon araçları. Bio-link devle
 
 ## Konumlandırma Mesajı
 
-> “Kaydet.link, tekrar tekrar aynı linki aramak istemeyen küratörler için tasarlanmış mikro-kürasyon aracıdır. Seçtiğin linkleri temalı rehberlere dönüştür, tek linkle paylaş, güncel tut.”
+> “PackedLink, tekrar tekrar aynı linki aramak istemeyen küratörler için tasarlanmış mikro-kürasyon aracıdır. Seçtiğin linkleri temalı rehberlere dönüştür, tek linkle paylaş, güncel tut.”
 
 ## Hedeflenen Taktikler
 

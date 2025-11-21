@@ -1,13 +1,13 @@
 # Blog System Architecture
 
-This document outlines the blog system architecture for PackedLink Phase 0. The blog system follows [ZEN-SEO-COMPOUND] principle: build SEO traffic before app launch.
+This document outlines the blog system architecture for PackedLink. The blog system follows [ZEN-SEO-COMPOUND] principle: sürekli içerik üretimi ile SEO trafiğini kademeli büyütmek.
 
 ## Goals
 
-1. **500+ blog posts** indexed on Google before Phase 1 launch
-2. **Notion-based CMS** - Write in Notion, sync to Next.js
-3. **Static generation** - Fast, SEO-friendly pages
-4. **Silent operation** - No promotion, pure SEO accumulation
+1. **Notion-based CMS** - Notion'da yaz, otomatik Next.js'e senkronize et
+2. **Static generation** - Hızlı, SEO-friendly sayfalar
+3. **Sürekli yayın** - Haftalık/aylık düzenli blog üretimi; tek seferlik 500+ hedefi yok
+4. **Sessiz operasyon** - Abartılı promosyon yerine temiz indeksleme ve yapılandırılmış veri
 
 ## Technology Stack
 
@@ -164,51 +164,24 @@ Target long-tail keywords with search volume:
 
 ## Implementation Plan
 
-### Week 1: Infrastructure
+### Setup
 
-**Day 1-2: Notion Setup**
-- [ ] Create Notion database with schema
-- [ ] Set up Notion API integration
-- [ ] Write test content
+- Notion database oluştur ve API entegrasyonunu yap (schema: Title, Slug, Published, PublishedDate, Category, Tags, Content).
+- Sync script'i yaz: Notion → Markdown → `content/blog/` + `metadata.json` üret.
+- Blog rotalarını oluştur: `/blog` index, `/blog/[slug]` post sayfası; markdown render + syntax highlighting.
+- SEO hygiene: sitemap.xml, RSS feed, structured data (JSON-LD), Open Graph, canonical URLs.
 
-**Day 3-4: Sync Script**
-- [ ] Install Notion SDK: `npm install @notionhq/client`
-- [ ] Write sync script to fetch Notion content
-- [ ] Convert Notion blocks to Markdown
-- [ ] Save to `content/blog/` directory
+### Yayın ve Süreç
 
-**Day 5-7: Blog Routes**
-- [ ] Create `/blog` index page
-- [ ] Create `/blog/[slug]` post page
-- [ ] Implement markdown rendering
-- [ ] Add syntax highlighting for code blocks
-
-### Week 2-3: SEO & Publishing
-
-**Week 2: SEO Features**
-- [ ] Generate sitemap.xml
-- [ ] Create RSS feed
-- [ ] Add structured data (JSON-LD)
-- [ ] Implement Open Graph tags
-- [ ] Add canonical URLs
-
-**Week 3: Content Production**
-- [ ] Write initial 50 blog posts with AI
-- [ ] Set up publishing schedule (5-10 posts/day)
-- [ ] Submit sitemap to Google Search Console
-- [ ] Monitor indexing status
-
-### Week 4-12: Content Scaling
-
-- [ ] Continue writing and publishing 5-10 posts/day
-- [ ] Reach 500+ total posts by week 12
-- [ ] Monitor Google indexing and rankings
-- [ ] Adjust content strategy based on performance
+- **Ritim:** Haftalık en az 1–3 yazı; kapasiteye göre artırılabilir. İstikrar > hacim.
+- **Girdi:** Notion'da yaz → `npm run sync-blog` ile dosyaları çek → build/deploy ile yayınla.
+- **Kontrol:** Search Console indeks durumu, kırık link taraması, temel web vitals.
+- **Güncelleme:** Performans düşük yazıları iyileştir; içerik backlog'unu persona önceliklerine göre tut.
 
 ## File Structure
 
 ```
-/Users/mirat/Code/Current/kaydet.link/
+/Users/mirat/Code/Current/packedlink/
   content/
     blog/
       *.md                    # Blog post markdown files
@@ -311,23 +284,22 @@ async function syncBlog() {
 
 ## Performance Considerations
 
-1. **Build Time:** 500 posts × ~100ms = 50 seconds build time (acceptable)
-2. **Incremental Static Regeneration:** Not needed for Phase 0 (content rarely changes after publish)
-3. **Image Optimization:** Use Next.js `<Image>` component for all blog images
-4. **Code Splitting:** Automatic with Next.js App Router
+1. **Build Time:** İçerik arttıkça build süresi lineer artar; birkaç yüz yazı sonrası build süresini izleyip gerekirse ISR veya kısmi yeniden üretim ekle.
+2. **Incremental Static Regeneration:** İçerik sık güncellenirse seçili sayfalara ISR eklenebilir; düşük frekansta tam statik üretim yeterli.
+3. **Image Optimization:** Tüm blog görsellerinde Next.js `<Image>` kullan.
+4. **Code Splitting:** App Router ile otomatik; ekstra aksiyon gerekmez.
 
 ## Next Steps
 
 1. Set up Notion database and API integration
 2. Create blog routes in Next.js
 3. Write sync script
-4. Start content production with AI
-5. Deploy and monitor SEO performance
+4. Başlangıç içeriklerini üretip düzenli yayın ritmini oturt
+5. Search Console ve analytics ile performansı izle
 
-## Success Metrics
+## Success Signals
 
-- **500+ posts** indexed on Google by Phase 1 launch
-- **Blog pages** generating organic traffic
-- **Backlinks** from blog content to landing page
-- **Domain authority** increase from blog content
-- **Keyword rankings** for target long-tail keywords
+- Düzenli yayın ritmi korunuyor (haftalık/aylık)
+- Blog sayfaları organik trafik ve indeks artışı sağlıyor
+- İçeriklerden landing sayfalarına geri bağlantılar oluşuyor
+- Hedeflenen long-tail anahtar kelimelerde görünürlük artışı

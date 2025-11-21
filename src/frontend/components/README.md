@@ -1,6 +1,6 @@
 # Design System Components
 
-Kaydet.link'in sade component kütüphanesi.
+PackedLink'in sade component kütüphanesi.
 
 ## Prensip: Sadelik
 
@@ -24,7 +24,7 @@ export default function Page() {
   return (
     <div>
       <Hero
-        title="Kaydet.link"
+        title="PackedLink"
         description="Sade bir link listesi"
       />
 

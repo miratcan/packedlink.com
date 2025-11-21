@@ -327,7 +327,7 @@ class Orchestrator:
 )
 def main(type, verbose, keep_alive, debug):
     """
-    Test Orchestrator for Kaydet.link
+    Test Orchestrator for PackedLink
 
     \b
     Examples:

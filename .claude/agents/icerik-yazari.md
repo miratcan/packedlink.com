@@ -52,12 +52,12 @@ Vurgu: Organize etme, kalıcı link
 
 **Output:**
 ```markdown
-# Arkadaşlara Mekan Rehberi Göndermek için Kaydet.link
+# Arkadaşlara Mekan Rehberi Göndermek için PackedLink
 
 Kadıköy'de kahve nerede içilir? Beyoğlu'da hangi bara gidelim?
 Aynı soruları her hafta cevaplıyorsun.
 
-Kaydet.link'le bir kez liste yap, herkese aynı linki at.
+PackedLink'le bir kez liste yap, herkese aynı linki at.
 
 [CTA: Mekan Listeni Hazırla]
 Ücretsiz. Kayıt gerektirmez. 2 dakikada hazır.
@@ -67,7 +67,7 @@ Kaydet.link'le bir kez liste yap, herkese aynı linki at.
 ## Nasıl Çalışır?
 
 1. **Liste Yap:** "Kadıköy Kahve Turu" listesi oluştur
-2. **Linki Paylaş:** kaydet.link/l/kadikoy-kahve
+2. **Linki Paylaş:** packedlink.com/l/kadikoy-kahve
 3. **Soru Bitsin:** Herkes aynı sayfadan bakar
 
 ---

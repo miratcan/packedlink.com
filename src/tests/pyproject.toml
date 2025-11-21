@@ -1,7 +1,7 @@
 [project]
 name = "kaydet-tests"
 version = "0.1.0"
-description = "Test orchestration and E2E tests for Kaydet.link"
+description = "Test orchestration and E2E tests for PackedLink"
 requires-python = ">=3.10"
 dependencies = [
     "click>=8.1.0",

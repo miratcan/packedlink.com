@@ -42,6 +42,8 @@ This document defines the spirit and philosophy of PackedLink. For technical dec
 
 **[ZEN-MEASURE-FIRST]** Every critical flow is measured; we don't ship without event data and base decisions on numbers, not feelings.
 
+**[ZEN-EASIEST-PATH]** A feature isn't “done” until the easiest, lowest-friction way to use it is delivered. Default to the shortest path (fewest fields/steps), remember user context, and avoid extra variants that don't reduce friction.
+
 ## Honesty
 
 **[ZEN-NO-TRICKS]** No dark patterns. We don't do popups, forced signups, clickbait, or bait-and-switch.

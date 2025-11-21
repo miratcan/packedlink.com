@@ -1,6 +1,6 @@
-# Content & SEO Strategy (P1)
+# Content & SEO Strategy (Sürekli Üretim)
 
-Kaydet.link’in büyümesi ilk aşamada SEO’ya dayanmıyor; ana dağıtım kanalı gerçek Elif ve Ali hikâyeleri. Yine de içerik üretimi disipline olsun diye P1 için aşağıdaki plan geçerli.
+PackedLink’in büyümesi SEO'ya dayanarak başlamıyor; ana dağıtım kanalı gerçek Elif ve Ali hikâyeleri. Yine de içerik üretimi disipline olsun diye süreklilik odaklı bir plan takip edilir.
 
 ---
 
@@ -30,7 +30,7 @@ Her içerik parçası “aynı soruyu iki kez cevaplama” temasına bağlanmal�
 - **Türkçe düşük hacimli, yüksek niyetli sorgular**: “link listesi oluştur”, “kaynakları tek linkte paylaş”, “dm sorularına tek link”.
 - **Persona terimleri**: “affiliate linkleri düzenleme”, “arkadaşlara mekan rehberi yollama”, “öğrenci kaynak listesi”.
 - Araç: Ahrefs/LowFruits yerine manuel SERP incelemesi + Search Console verisi yeterli.
-- Hedef: P1’de 5–10 parça içerik → Search Console’da indekslenme görmek yeterli.
+- Hedef: Başlangıçta 5–10 parça içerik yayıp indeks görmek; sonrasında haftalık/aylık düzenli üretimi sürdürmek.
 
 ---
 
@@ -50,23 +50,22 @@ Her içerik parçası “aynı soruyu iki kez cevaplama” temasına bağlanmal�
 
 ---
 
-## 5. Yayın Takvimi (P1)
+## 5. Yayın Ritmi ve Backlog
 
-| Hafta | İçerik | Not |
-|-------|--------|-----|
-| 1 | `/affiliate` ve `/mekan` landing’leri | Persona problemleri + CTA |
-| 2 | Örnek liste: “Bebek Alışveriş Rehberi” | Ekran görüntüsü + gerçek linkler |
-| 3 | Blog yazısı: “DM’de aynı soruyu kaç kere cevapladın?” | Paylaşılabilir, sosyal içerik |
-| 4 | `/kaynak` landing’i + öğretmen örnek listesi | Kaynak küratörlerine mesaj |
-
-Pilot kullanıcıların hazırladığı diğer listeler blog’da “Yapım Aşamasında” olarak toplanır.
+- **Ritim:** Her hafta en az 1 landing veya örnek liste + 1 mini rehber/blog; kapasite artarsa artırılır ama hedef sürdürülebilir tempo.
+- **Başlangıç backlog'u:**
+  - `/affiliate` ve `/mekan` landing’leri (persona problemleri + CTA)
+  - Örnek liste: “Bebek Alışveriş Rehberi” (ekran görüntüsü + gerçek linkler)
+  - Blog: “DM’de aynı soruyu kaç kere cevapladın?” (paylaşılabilir, sosyal içerik)
+  - `/kaynak` landing’i + öğretmen örnek listesi
+- **Canlıdan gelenler:** Pilot kullanıcı listeleri “Yapım Aşamasında” blog bölümünde toplanır, tamamlandıkça yayına alınır.
 
 ---
 
 ## 6. Dağıtım
 
 - **Instagram/TikTok DM’leri:** Persona bazlı landing URL’leri.
-- **Twitter/LinkedIn:** Örnek liste ekran görüntüsü + “Bu listeyi Kaydet.link ile yaptım” copy’si.
+- **Twitter/LinkedIn:** Örnek liste ekran görüntüsü + “Bu listeyi PackedLink ile yaptım” copy’si.
 - **Newsletter/WhatsApp:** Kısa metin + tek link (platform testleri).
 - **SEO:** Şimdilik Search Console + manuel backlink (kişisel blog, Medium) yeterli.
 

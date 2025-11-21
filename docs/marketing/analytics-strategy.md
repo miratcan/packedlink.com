@@ -1,17 +1,18 @@
-# Analytics & Measurement Strategy (P1)
+# Analytics & Measurement Strategy
 
-Kaydet.link’te ölçüm, Zen’deki **ZEN-MEASURE-FIRST** kuralına dayanır: hisle değil veriyle karar veriyoruz fakat bunu solo kurucu realitesine göre basit tutuyoruz. Bu doküman sadece P1 hedefi (20 aktif küratör) için gereken minimum setup’ı anlatır.
+PackedLink’te ölçüm, Zen’deki **ZEN-MEASURE-FIRST** kuralına dayanır: hisle değil veriyle karar veriyoruz fakat bunu solo kurucu gerçekliğine göre basit tutuyoruz. Bu doküman çekirdek akışın çalışıp çalışmadığını görmek için gereken minimum setup’ı anlatır.
 
 ---
 
-## 1. Neyi Ölçüyoruz? (P1 Soruları)
+## 1. Neyi Ölçüyoruz? (Mekanizma)
 
-1. **Aktivasyon:** Kaydolanların kaçı ilk public listesini oluşturuyor?
-2. **Kullanım Derinliği:** İlk haftada kişi başı kaç link ekleniyor?
-3. **Paylaşım:** Liste paylaşma (copy link / sosyal buton) oranı nedir?
-4. **Performans:** Mobilde liste sayfası <3 sn açılıyor mu?
+Sürekli takip edilecek akışlar:
+1. **Aktivasyon:** Kaydolanların ilk public listesini oluşturma oranı
+2. **Kullanım derinliği:** Zaman aralığına göre kişi başı eklenen link sayısı
+3. **Paylaşım:** Liste paylaşma eylemi (copy link / sosyal buton)
+4. **Performans:** Mobil LCP ölçümü
 
-Bu dört soru cevaplandığında “çekirdek değer çalışıyor mu?” sorusunu yanıtlayabiliriz.
+Bu sinyaller çekirdek akışın çalışıp çalışmadığını gösterir; metrik eşik/hedefleri dönemsel kararlara göre ayrı belirlenir.
 
 ---
 
@@ -45,14 +46,14 @@ Tüm event’ler önce Supabase’e yazılır, PostHog’a forward edilir. Böyl
 ## 4. Dashboard & Ritual
 
 ### Haftalık (kurucu check-in)
-- Signup → ilk public liste dönüşümü (hedef ≥ %40)
-- Kullanıcı başına ortalama link (hedef ≥ 8)
-- Paylaşım yapan kullanıcı oranı (hedef ≥ %30)
-- Mobilde LCP ortalaması (<3 sn)
+- Signup → ilk public liste dönüşümü (trend takibi)
+- Kullanıcı başına ortalama link (trend takibi)
+- Paylaşım yapan kullanıcı oranı (trend takibi)
+- Mobilde LCP ortalaması (Web Vitals verisi varsa)
 
 ### Aylık
-- Aktif küratör sayısı (≥20 hedefi için kaç kaldı?)
-- Hangi persona kaynağından daha çok dönüşüm geliyor?
+- Aktif küratör sayısı (trend takibi)
+- Persona kaynağı kırılımları (hangi kanal/mesaj daha iyi çalışıyor?)
 - En çok paylaşılan 5 liste (öğrenim için)
 
 Dashboard PostHog’da tutulur, her Pazartesi kısa özet çıkar.
@@ -69,9 +70,9 @@ Dashboard PostHog’da tutulur, her Pazartesi kısa özet çıkar.
 
 ## 6. Gelecek Fazlara Not
 
-P1 sonrası (Pro + örnek rehber içerikleri) geldiğinde:
+Pro + örnek rehber içerikleri fazına geçildiğinde:
 - Tıklama kaynakları (affiliate) için ek event’ler
 - Landing / blog içerik performans ölçümleri
 - Cohort raporları için Metabase/PostHog export
 
-Ancak şu an için tek öncelik: çekirdek akışın ölçülmesi. Ek event veya araç eklemeden önce bu dokümanı güncelle.
+Eşik/hedefler dönemsel kararla belirlenir; doküman sadece mekanizmaları tarif eder.

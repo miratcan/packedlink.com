@@ -1,12 +1,12 @@
-# Technical Decisions - Kaydet.link
+# Technical Decisions - PackedLink
 
-Bu doküman, Kaydet.link'in teknik kararlarını ve arkasındaki mantığı içerir.
+Bu doküman, PackedLink'in teknik kararlarını ve arkasındaki mantığı içerir.
 
 ## URL Schemas
 
 ### Temel URL Yapısı
 
-Tüm listeler `shortuuid` tabanlı, tahmin edilemez kısa ID kullanır: `kaydet.link/l/{hash_id}` ve opsiyonel slug'lı `kaydet.link/l/{hash_id}/{optional_slug}`.
+Tüm listeler `shortuuid` tabanlı, tahmin edilemez kısa ID kullanır: `packedlink.com/l/{hash_id}` ve opsiyonel slug'lı `packedlink.com/l/{hash_id}/{optional_slug}`.
 
 ### URL Çözümleme Mantığı
 
@@ -23,13 +23,13 @@ Tüm listeler `shortuuid` tabanlı, tahmin edilemez kısa ID kullanır: `kaydet.
 ### Örnekler
 
 **Free Kullanıcı:**
-- ✅ `kaydet.link/l/h7s9kd2m3p5q`
-- ❌ `kaydet.link/l/h7s9kd2m3p5q/istanbul-restoranlar` (slug isteğe bağlı olmadığı için 404)
+- ✅ `packedlink.com/l/h7s9kd2m3p5q`
+- ❌ `packedlink.com/l/h7s9kd2m3p5q/istanbul-restoranlar` (slug isteğe bağlı olmadığı için 404)
 
 **Pro Kullanıcı:**
-- ✅ `kaydet.link/l/h7s9kd2m3p5q`
-- ✅ `kaydet.link/l/h7s9kd2m3p5q/istanbul-restoranlar`
-- ✅ `kaydet.link/l/h7s9kd2m3p5q/best-restaurants-istanbul` (slug değiştirildiğinde)
+- ✅ `packedlink.com/l/h7s9kd2m3p5q`
+- ✅ `packedlink.com/l/h7s9kd2m3p5q/istanbul-restoranlar`
+- ✅ `packedlink.com/l/h7s9kd2m3p5q/best-restaurants-istanbul` (slug değiştirildiğinde)
 
 ### Neden Bu Model?
 
@@ -98,7 +98,7 @@ Tüm listeler `shortuuid` tabanlı, tahmin edilemez kısa ID kullanır: `kaydet.
 ### Frontend
 - **Next.js 14+** (App Router)
 - **TypeScript** (type safety)
-- **Tailwind CSS** (rapid styling)
+- **CSS Modules + design tokens** (utility yok, semantik class'lar)
 - **React Query** (data fetching)
 - **Zustand** (gerekirse hafif client-side state management)
 
@@ -165,7 +165,7 @@ Zustand sadece client tarafında komponentler arası UI state paylaşımı gerek
 
 ### Unlisted Liste Güvenliği
 
-1. **Hash ID:** 12 karakterlik shortuuid (ör. `kaydet.link/l/h7s9kd2m3p5q`)
+1. **Hash ID:** 12 karakterlik shortuuid (ör. `packedlink.com/l/h7s9kd2m3p5q`)
 2. **Brute force protection:** Rate limiting
 3. **No directory listing:** Rastgele vitrin yok
 4. **No user enumeration:** Username'den liste tahmin edilemez
@@ -186,6 +186,8 @@ Zustand sadece client tarafında komponentler arası UI state paylaşımı gerek
 2. **Link tıklanma:** Redirect ile track
 3. **User activity:** Last login, lists created
 4. **Event forwarder:** `ListEvent.log` PostHog SDK'sına opsiyonel olarak event yollar (env ile aç/kapa)
+
+> Event isimleri ve ölçüm öncelikleri için `docs/marketing/analytics-strategy.md` canonical kaynaktır; backend event’leri bu listeyle uyumlu tutulur.
 
 ### Pro Analytics (ileride)
 

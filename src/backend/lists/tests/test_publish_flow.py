@@ -64,7 +64,7 @@ def test_publish_flow_creates_public_list(client: Client):
 @pytest.mark.django_db
 def test_manage_link_grants_session_access(client: Client):
     list_obj = List.objects.create(title="Deneme", description="", curator_name="Ada")
-    Link.objects.create(list=list_obj, title="Kaydet", url="https://kaydet.link")
+    Link.objects.create(list=list_obj, title="PackedLink", url="https://packedlink.com")
 
     builder_url = reverse("lists:builder", kwargs={"manage_token": list_obj.manage_token})
     first_response = client.get(f"{builder_url}?auth={list_obj.manage_token}")

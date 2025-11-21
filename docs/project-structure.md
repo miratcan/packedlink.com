@@ -1,9 +1,9 @@
-# Kaydet.link - Project Structure
+# PackedLink - Project Structure
 
 ## Overview
 
 ```
-kaydet.link/
+packedlink/
 ├── .claude/                    # Agent definitions
 │   └── agents/
 │       ├── designer.md
@@ -31,7 +31,7 @@ kaydet.link/
 │   │
 │   ├── frontend/              # Next.js frontend
 │   │   ├── app/               # Next.js app router
-│   │   │   ├── globals.css    # CSS variables + global styles
+│   │   │   ├── globals.css    # Design tokens + global styles
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx
 │   │   ├── components/        # Design system components
@@ -62,15 +62,15 @@ Agent definitions for workflow automation.
 
 ### `docs/`
 - `zen.md` - Product principles
-- `product/design-guide.md` - Design system rules
+- `product/design-guide.md` - Design system rules (tek stil kaynağı)
 - `marketing/brand-voice.md` - Brand tone & voice
 
 ### `src/frontend/`
-Next.js 14 app with Tailwind CSS.
+Next.js 14 app with CSS Modules + design tokens (utility yok).
 
 **Components:**
 - All components use CSS modules
-- CSS variables from `globals.css`
+- CSS variables/tokens from `globals.css`
 - Minimal, no unnecessary variants
 
 ### `src/backend/`
@@ -101,7 +101,7 @@ just test-frontend    # Frontend tests
 **Frontend:**
 - Next.js 14.2 (App Router)
 - React 18.3
-- Tailwind CSS (and Pure CSS for component-specific styles)
+- CSS Modules + design tokens (no utilities)
 - Zustand (state)
 - React Query (data)
 
@@ -129,9 +129,8 @@ All components in `src/frontend/components/`:
 - LinkBar
 
 **Rules:**
-- ✅ Tailwind CSS for utility-first styling
-- ✅ CSS modules for component-specific styles
-- ✅ CSS variables
+- ✅ CSS Modules for component-specific styles
+- ✅ Design tokens (`globals.css`)
 - ✅ Minimal (no unnecessary variants)
 
 ## Agent Workflow
