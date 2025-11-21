@@ -1,0 +1,130 @@
+.section {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.content {
+  display: grid;
+  gap: var(--spacing-xs);
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  max-width: 720px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  align-self: flex-start;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent) 16%, transparent);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.form {
+  display: grid;
+  gap: var(--spacing-sm);
+}
+
+.inputRow {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.input {
+  flex: 1;
+  min-width: 240px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-cream);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+.note {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.error {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+}
+
+.successState {
+  display: grid;
+  gap: var(--spacing-sm);
+}
+
+.successBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-sage) 18%, transparent);
+  color: var(--color-sage);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+}
+
+.successTitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+}
+
+.successDescription {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.successDescription strong {
+  color: var(--color-text-primary);
+}
+
+.asideList {
+  display: grid;
+  gap: var(--spacing-xs);
+  color: var(--color-text-secondary);
+}
+
+.bullet {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .inputRow {
+    flex-direction: column;
+  }
+}

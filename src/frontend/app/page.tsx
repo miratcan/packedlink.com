@@ -1,5 +1,6 @@
 import { Button } from '@/components/Button/Button'
 import { Header } from '@/components/Header/Header'
+import { WaitlistSection } from '@/components/WaitlistSection/WaitlistSection'
 import styles from './page.module.css'
 
 export default function HomePage() {
@@ -23,7 +24,7 @@ export default function HomePage() {
               </p>
 
               <div className={styles.heroCta}>
-                <Button href="/waitlist" size="large" variant="primary" context="dark">
+                <Button href="/#waitlist" size="large" variant="primary" context="dark">
                   Join waitlist
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -319,24 +320,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className={styles.finalCtaSection}>
-        <div className={styles.finalCtaContainer}>
-          <h2 className={styles.finalCtaTitle}>
-            Get early access
-          </h2>
-          <p className={styles.finalCtaDescription}>
-            Join the waitlist and be the first to use PackedLink when we launch. Get exclusive early access features.
-          </p>
-          <Button href="/waitlist" size="large" variant="primary" context="light">
-            Join waitlist
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </Button>
-        </div>
-      </section>
+      <WaitlistSection />
 
       {/* Footer */}
       <footer className={styles.footer}>

@@ -23,7 +23,7 @@ export function Header() {
             <a href="#who" className={styles.navLink}>
               Who uses it?
             </a>
-            <Button variant="primary" context="light" href="/waitlist">
+            <Button variant="primary" context="light" href="/#waitlist">
               Join Waitlist
             </Button>
           </div>
