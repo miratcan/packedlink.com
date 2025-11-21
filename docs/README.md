@@ -14,3 +14,5 @@ Bu klasörde her konu için tek canonical dosya tutulur; özetler tekrar etmez, 
 
 ## Kural
 Yeni bilgi eklerken önce ilgili canonical dosyayı güncelle; başka dokümanda özet gerekiyorsa sadece link/veri çek, içerik kopyalama.
+
+**Neden?** ZEN-SOLO-FIT ve ZEN-ONE-JOB: Tek kişinin sürdürebileceği yalınlık için her konuya tek kaynak, kopya içerik yok.
